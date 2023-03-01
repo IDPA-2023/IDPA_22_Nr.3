@@ -1,0 +1,27 @@
+1. Alle Notenrelevanten Fächer darin auflisten
+
+2. Bei jedem Fach die Möglichkeit von 1. - 6. Semester Noten von 1-6 einzugeben
+
+3. Bei Sondergeregelten Fächern wioe Mathe diese abwendungen ermöglichen.
+
+4. Einen Schnitt ausgeben in einem seperaten Feld
+
+5. Die schriftlich und mündlichen Prüfungen eintragbar vermerken.
+
+6. Den Schnitt der beiden Abschlussprüfungen in seperatem Feld ausgeben
+
+7. Den Schnitt aus den beiden seperaten Felder berechnen.
+
+8. Den gesamtschnitt aller Noten berechnen
+
+9. Promotion überprüfen mit max 2 neg. Noten und mind. 4 Schnitt und max 2 Noten abweichung ins ungenügende.
+
+10. Bei Feldern ohne Abschlussprüfung direkt die Schnittnote eingeben.
+
+11. Bei IDAF und IDPA Sonderregelung implementieren.
+
+12. Ungenügende Noten Rot markieren
+
+13. Genügende Noten grün 
+
+14. Dasselbe bei der Promotionskontrolle.
