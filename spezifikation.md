@@ -15,6 +15,6 @@ Nr | Input | Output | erfüllt
 3 | Noten werden mittels .csv Datei importiert | Noten werden automatisch eingetragen. (vgl. Test Nr 1) | tbc
 4 | Noten werden exportiert | Der Anwender erhält ein PDF/PNG mit den Noten, -schnitte und Promotionsentscheide. | tbc
 5 | Fach wird hinzugefügt | Es können Noten für das neu hinzugefügte Fach eingetragen werden und sie werden im Promotionsstand berücksichtigt. | tbc
-6 | Klick auf Entwicklung anzeigen | Ein Diagram wird gezeigt, das die Entwicklung des Schnitts über die Zeit anzeigt. | tbc
+6 | Entwicklung (Notenschnitt/Zeit) anzeigen | Ein Diagram wird gezeigt, das die Entwicklung des Schnitts über die Zeit anzeigt. | tbc
 7 | Bei Aufrufen des Programs wird eine Authentifizierung verlangt | Man kann sich nur mit gültigen Anmeldedaten authentifizieren oder evtl. neu registrieren. | tbc
 
