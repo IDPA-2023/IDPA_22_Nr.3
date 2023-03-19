@@ -6,12 +6,17 @@ import java.util.Arrays;
 public class Fach {
     private String name;
     private ArrayList<Double> zeugnisnoten;
-    private double schriftlich = 0.0;
-    private double muendlich = 0.0;
+    private double schriftlich;
+    private double muendlich;
+    private int start_semester = 1;
+    private int end_semester = 6;
+    private boolean schriftlich_exist;
+    private boolean muendlich_exist;
 
-    public Fach(String name, ArrayList<Double> zeugnisnoten) {
+    public Fach(String name, boolean schriftlich_exist, boolean muendlich_exist) {
         this.name = name;
-        this.zeugnisnoten = zeugnisnoten;
+        this.schriftlich_exist = schriftlich_exist;
+        this.muendlich_exist = muendlich_exist;
     }
 
     // position 1 (prüfungsnote) berechnen
@@ -48,5 +53,29 @@ public class Fach {
     }
     public void setMuendlich(double muendlich) {
         this.muendlich = muendlich;
+    }
+    public int getStart_semester() {
+        return start_semester;
+    }
+    public void setStart_semester(int start_semester) {
+        this.start_semester = start_semester;
+    }
+    public int getEnd_semester() {
+        return end_semester;
+    }
+    public void setEnd_semester(int end_semester) {
+        this.end_semester = end_semester;
+    }
+    public boolean isSchriftlich_exist() {
+        return schriftlich_exist;
+    }
+    public void setSchriftlich_exist(boolean schriftlich_exist) {
+        this.schriftlich_exist = schriftlich_exist;
+    }
+    public boolean isMuendlich_exist() {
+        return muendlich_exist;
+    }
+    public void setMuendlich_exist(boolean muendlich_exist) {
+        this.muendlich_exist = muendlich_exist;
     }
 }

@@ -1,11 +1,14 @@
 package kbw.stragiotti;
 
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
         // ToDo: daten einlesen
+
+
         // 1. semester
         double d1 = 0.0;
         double f1 = 0.0;
@@ -68,7 +71,7 @@ public class Main {
         double idaf2 = 0.0;
 
         // fächer erstellen (beispiel)
-        Fach d = new Fach("Deutsch", new ArrayList<Double>(Arrays.asList(d1, d2, d3, d4, d5, d6)));
+        Fach d = new Fach("Deutsch",true, true);
         d.setSchriftlich(d_schriftlich);
         d.setMuendlich(d_muendlich);
 
