@@ -2,14 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
-<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -25,7 +26,7 @@
                     <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                     </padding>
-                    <Label text="notenrechner">
+                    <Label text="IMS Notenrechner 2023">
                         <font>
                             <Font name="System Bold" size="28.0" />
                         </font>
@@ -222,6 +223,26 @@
                                             <Label prefHeight="46.0" prefWidth="102.0" style="-fx-background-color: #DCDCDC;" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                                         </children>
                                     </GridPane>
+                                    <Button id="b1" layoutX="76.0" layoutY="715.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Berechnen">
+                                        <effect>
+                                            <DropShadow />
+                                        </effect>
+                                    </Button>
+                                    <Button id="b4" layoutX="519.0" layoutY="715.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Speichern">
+                                        <effect>
+                                            <DropShadow />
+                                        </effect>
+                                    </Button>
+                                    <Button id="b3" layoutX="373.0" layoutY="715.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Export csv">
+                                        <effect>
+                                            <DropShadow />
+                                        </effect>
+                                    </Button>
+                                    <Button id="b2" layoutX="227.0" layoutY="715.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Import csv">
+                                        <effect>
+                                            <DropShadow />
+                                        </effect>
+                                    </Button>
                                 </children>
                             </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="827.0" prefWidth="1336.0">
@@ -259,12 +280,12 @@
                                         </children>
                                     </GridPane>
                                     <ScrollPane layoutX="430.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" />
-                                    <LineChart alternativeColumnFillVisible="true" layoutX="355.0" layoutY="34.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="606.0" prefWidth="828.0" title="Notenverlauf" AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="34.0">
+                                    <LineChart fx:id="lineChart" alternativeColumnFillVisible="true" layoutX="355.0" layoutY="34.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="606.0" prefWidth="828.0" title="Notenverlauf" AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="34.0">
                                         <xAxis>
-                                            <CategoryAxis side="BOTTOM" />
+                                            <NumberAxis side="BOTTOM" lowerBound="0" upperBound="5" tickUnit="0.5"/>
                                         </xAxis>
                                         <yAxis>
-                                            <NumberAxis side="LEFT" />
+                                            <NumberAxis side="LEFT" lowerBound="0" upperBound="5" tickUnit="1" />
                                         </yAxis>
                                         <opaqueInsets>
                                             <Insets />
