@@ -14,7 +14,7 @@ public class Main {
         String splitBy = ",";
         try {
             // parsing a CSV file into BufferedReader class constructor
-            BufferedReader br = new BufferedReader(new FileReader("/Users/samirastragiotti/IdeaProjects/notenrechner/src/main/resources/test_file.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("/Users/samirastragiotti/IdeaProjects/notenrechner/src/main/resources/idpa/test_file.csv"));
             for(int i = 0; (line = br.readLine()) != null; i++) {
                 String[] faecherCSV = line.split(splitBy);
                 if (i>=1) {
