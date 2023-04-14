@@ -232,7 +232,7 @@
                                  <DropShadow />
                               </effect>
                            </Button>
-                           <Button id="b2" layoutX="160.0" layoutY="715.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Import csv">
+                           <Button id="b2" layoutX="160.0" layoutY="715.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Import csv" onAction="#import_csv">
                               <effect>
                                  <DropShadow />
                               </effect>

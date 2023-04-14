@@ -3,18 +3,26 @@ package idpa;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Controller {
     @FXML
@@ -215,20 +223,18 @@ public class Controller {
         initial();
     }
 
-    /*
-    ToDo: import button machen und so dass file auswählen geht
-    public void import() {
+    public void import_csv() {
         ArrayList<Fach> faecher = new ArrayList<Fach>();
         String line = " ";
         String splitBy = ",";
         try {
             // parsing a CSV file into BufferedReader class constructor
-            BufferedReader br = new BufferedReader(new FileReader("/Users/samirastragiotti/IdeaProjects/notenrechner/src/main/resources/idpa/test_file.csv"));
+            BufferedReader br = new BufferedReader(new FileReader(String.valueOf(App.class.getResource("data.csv"))));
             for(int i = 0; (line = br.readLine()) != null; i++) {
                 String[] faecherCSV = line.split(splitBy);
                 if (i>=1) {
                     // add read data as "Fach" to faecher list
-                    faecher.add(new Fach(faecherCSV[0], Boolean.parseBoolean(faecherCSV[11]), Boolean.parseBoolean(faecherCSV[12])));
+                    faecher.add(new Fach(faecherCSV[0]));
                     ArrayList<Double> noten = new ArrayList<>(List.of(
                             Double.parseDouble(faecherCSV[1]),
                             Double.parseDouble(faecherCSV[2]),
@@ -236,18 +242,11 @@ public class Controller {
                             Double.parseDouble(faecherCSV[4]),
                             Double.parseDouble(faecherCSV[5]),
                             Double.parseDouble(faecherCSV[6])));
-                    if(noten != null) {
-                        faecher.get(i-1).setZeugnisnoten(noten);
-                    }
-                    if(faecher.get(i-1).isSchriftlich_exist()) {
-                        faecher.get(i-1).setSchriftlich(Double.parseDouble(faecherCSV[7]));
-                    }
-                    if(faecherCSV[9] != null) {
-                        faecher.get(i-1).setStart_semester(Integer.parseInt(faecherCSV[9]));
-                    }
-                    if(faecherCSV[10] != null) {
-                        faecher.get(i-1).setEnd_semester(Integer.parseInt(faecherCSV[10]));
-                    }
+                    faecher.get(i-1).setZeugnisnoten(noten);
+                    faecher.get(i-1).setSchriftlich(Double.parseDouble(faecherCSV[7]));
+                    faecher.get(i-1).setMündlich(Double.parseDouble(faecherCSV[8]));
+                    faecher.get(i-1).setErfahrungsnote(Double.parseDouble(faecherCSV[9]));
+                    faecher.get(i-1).setPrüfungsnote(Double.parseDouble(faecherCSV[10]));
                 }
             }
         }
@@ -255,8 +254,6 @@ public class Controller {
             e.printStackTrace();
         }
     }
-
-     */
 
     public void initial() {
 
@@ -339,7 +336,6 @@ public class Controller {
     }
 
     public void berechnen() throws IOException {
-        /* nur als test :)
         for (Node node : grid1.getChildren()) {
             if (node instanceof TextField) {
                 TextField textField = (TextField) node;
@@ -363,6 +359,96 @@ public class Controller {
         }
 
         if (allFieldsFilled) {
+            // berechnen
+            Fach d = new Fach("Deutsch");
+            ArrayList<Double> dNoten = new ArrayList<>();
+            d.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(d1.getText()),
+                    Double.parseDouble(d2.getText()),
+                    Double.parseDouble(d3.getText()),
+                    Double.parseDouble(d4.getText()),
+                    Double.parseDouble(d5.getText()),
+                    Double.parseDouble(d6.getText()))));
+            d.setSchriftlich(Double.parseDouble(dS.getText()));
+            d.setMündlich(Double.parseDouble(dM.getText()));
+
+            Fach m = new Fach("Mathematik");
+            ArrayList<Double> mNoten = new ArrayList<>();
+            m.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(m1.getText()),
+                    Double.parseDouble(m2.getText()),
+                    Double.parseDouble(m3.getText()),
+                    Double.parseDouble(m4.getText()))));
+            m.setSchriftlich(Double.parseDouble(mS.getText()));
+
+            Fach e = new Fach("Englisch");
+            ArrayList<Double> eNoten = new ArrayList<>();
+            e.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(e1.getText()),
+                    Double.parseDouble(e2.getText()),
+                    Double.parseDouble(e3.getText()),
+                    Double.parseDouble(e4.getText()),
+                    Double.parseDouble(e5.getText()),
+                    Double.parseDouble(e6.getText()))));
+            e.setSchriftlich(Double.parseDouble(eS.getText()));
+            e.setMündlich(Double.parseDouble(eM.getText()));
+
+            Fach f = new Fach("Französisch");
+            ArrayList<Double> fNoten = new ArrayList<>();
+            f.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(f1.getText()),
+                    Double.parseDouble(f2.getText()),
+                    Double.parseDouble(f3.getText()),
+                    Double.parseDouble(f4.getText()))));
+            f.setSchriftlich(Double.parseDouble(fS.getText()));
+            f.setMündlich(Double.parseDouble(fM.getText()));
+
+            Fach wr = new Fach("Wirtschaft und Recht");
+            ArrayList<Double> wrNoten = new ArrayList<>();
+            wr.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(wr1.getText()),
+                    Double.parseDouble(wr2.getText()),
+                    Double.parseDouble(wr3.getText()),
+                    Double.parseDouble(wr4.getText()),
+                    Double.parseDouble(wr5.getText()),
+                    Double.parseDouble(wr6.getText()))));
+            wr.setSchriftlich(Double.parseDouble(wrS.getText()));
+
+            Fach rw = new Fach("Finanz- und Rechnungswesen");
+            ArrayList<Double> rwNoten = new ArrayList<>();
+            rw.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(rw1.getText()),
+                    Double.parseDouble(rw2.getText()),
+                    Double.parseDouble(rw3.getText()),
+                    Double.parseDouble(rw4.getText()),
+                    Double.parseDouble(rw5.getText()),
+                    Double.parseDouble(rw6.getText()))));
+            rw.setSchriftlich(Double.parseDouble(rwS.getText()));
+
+            Fach g = new Fach("Geschichte und Politik");
+            ArrayList<Double> gNoten = new ArrayList<>();
+            g.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(f1.getText()),
+                    Double.parseDouble(f2.getText()),
+                    Double.parseDouble(f3.getText()),
+                    Double.parseDouble(f4.getText()))));
+
+            Fach tu = new Fach("Technik und Umwelt");
+            ArrayList<Double> tuNoten = new ArrayList<>();
+            tu.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(tu3.getText()),
+                    Double.parseDouble(tu4.getText()))));
+
+            Fach idaf = new Fach("Informatik und Digitale Arbeit");
+            ArrayList<Double> idafNoten = new ArrayList<>();
+            idaf.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(idaf3.getText()),
+                    Double.parseDouble(idaf4.getText()))));
+
+            Fach idpa = new Fach("Informatik und Programmieren");
+            ArrayList<Double> idpaNoten = new ArrayList<>();
+            idaf.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(idpa6.getText()))));
 
             // Remove all data series from line chart
             lineChart.getData().removeAll(lineChart.getData());
@@ -433,114 +519,8 @@ public class Controller {
             // Show the alert dialog
             alert.showAndWait();
         }
-         */
-        Fach d = new Fach("Deutsch");
-        ArrayList<Double> dNoten = new ArrayList<>();
-        d.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                Double.parseDouble(d1.getText()),
-                Double.parseDouble(d2.getText()),
-                Double.parseDouble(d3.getText()),
-                Double.parseDouble(d4.getText()),
-                Double.parseDouble(d5.getText()),
-                Double.parseDouble(d6.getText()))));
-        d.setSchriftlich(Double.parseDouble(dS.getText()));
-        d.setMuendlich(Double.parseDouble(dM.getText()));
-
-        Fach m = new Fach("Mathematik");
-        ArrayList<Double> mNoten = new ArrayList<>();
-        m.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                Double.parseDouble(m1.getText()),
-                Double.parseDouble(m2.getText()),
-                Double.parseDouble(m3.getText()),
-                Double.parseDouble(m4.getText()))));
-        m.setSchriftlich(Double.parseDouble(mS.getText()));
-
-        Fach e = new Fach("Englisch");
-        ArrayList<Double> eNoten = new ArrayList<>();
-        e.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                Double.parseDouble(e1.getText()),
-                Double.parseDouble(e2.getText()),
-                Double.parseDouble(e3.getText()),
-                Double.parseDouble(e4.getText()),
-                Double.parseDouble(e5.getText()),
-                Double.parseDouble(e6.getText()))));
-        e.setSchriftlich(Double.parseDouble(eS.getText()));
-        e.setMuendlich(Double.parseDouble(eM.getText()));
-
-        Fach f = new Fach("Französisch");
-        ArrayList<Double> fNoten = new ArrayList<>();
-        f.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                Double.parseDouble(f1.getText()),
-                Double.parseDouble(f2.getText()),
-                Double.parseDouble(f3.getText()),
-                Double.parseDouble(f4.getText()))));
-        f.setSchriftlich(Double.parseDouble(fS.getText()));
-        f.setMuendlich(Double.parseDouble(fM.getText()));
-
-        Fach wr = new Fach("Wirtschaft und Recht");
-        ArrayList<Double> wrNoten = new ArrayList<>();
-        e.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                Double.parseDouble(wr1.getText()),
-                Double.parseDouble(wr2.getText()),
-                Double.parseDouble(wr3.getText()),
-                Double.parseDouble(wr4.getText()),
-                Double.parseDouble(wr5.getText()),
-                Double.parseDouble(wr6.getText()))));
-        e.setSchriftlich(Double.parseDouble(wrS.getText()));
-
-        Fach rw = new Fach("Finanz- und Rechnungswesen");
-        ArrayList<Double> rwNoten = new ArrayList<>();
-        rw.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                Double.parseDouble(rw1.getText()),
-                Double.parseDouble(rw2.getText()),
-                Double.parseDouble(rw3.getText()),
-                Double.parseDouble(rw4.getText()),
-                Double.parseDouble(rw5.getText()),
-                Double.parseDouble(rw6.getText()))));
-        rw.setSchriftlich(Double.parseDouble(rwS.getText()));
-
-        Fach g = new Fach("Geschichte und Politik");
-        ArrayList<Double> gNoten = new ArrayList<>();
-        g.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                Double.parseDouble(f1.getText()),
-                Double.parseDouble(f2.getText()),
-                Double.parseDouble(f3.getText()),
-                Double.parseDouble(f4.getText()))));
-
-        Fach tu = new Fach("Technik und Umwelt");
-        ArrayList<Double> tuNoten = new ArrayList<>();
-        tu.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                Double.parseDouble(tu3.getText()),
-                Double.parseDouble(tu4.getText()))));
-
-        Fach idaf = new Fach("Informatik und Digitale Arbeit");
-        ArrayList<Double> idafNoten = new ArrayList<>();
-        idaf.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                Double.parseDouble(idaf3.getText()),
-                Double.parseDouble(idaf4.getText()))));
-
-        Fach idpa = new Fach("Informatik und Programmieren");
-        ArrayList<Double> idpaNoten = new ArrayList<>();
-        idaf.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                Double.parseDouble(idpa6.getText()))));
     }
 
-    // position 1 (erfahrungsnote) berechnen
-    public double getPos1(double schriftlich, double muendlich) {
-        return (schriftlich+muendlich)/2;
-    }
-
-    // position 2 (prüfungsnote) berechnen
-    public double getPos2(ArrayList<Double> zeugnisnoten) {
-        Double total = 0.0;
-        int validNoten = 0;
-        for(Double note : zeugnisnoten) {
-            if(note > 0) {
-                total += note;
-                validNoten++;
-            }
-        }
-        return total/validNoten;
-    }
+    // ToDo: ausfüllen (last 1, 2, 3)
 
 }
