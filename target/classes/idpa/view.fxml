@@ -232,7 +232,7 @@
                                  <DropShadow />
                               </effect>
                            </Button>
-                           <Button id="b2" layoutX="160.0" layoutY="715.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Import csv">
+                           <Button id="b2" layoutX="160.0" layoutY="715.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Import csv" onAction="#import_csv">
                               <effect>
                                  <DropShadow />
                               </effect>
@@ -279,23 +279,23 @@
                                  <Label prefHeight="47.0" prefWidth="134.0" style="-fx-background-color: #DCDCDC;" GridPane.rowIndex="9" />
                                  <Label prefHeight="47.0" prefWidth="134.0" style="-fx-background-color: #DCDCDC;" GridPane.rowIndex="10" />
                                  <Label prefHeight="106.0" prefWidth="75.0" style="-fx-background-color: #DCDCDC;" GridPane.rowIndex="7" />
-                                 <Label fx:id="pRw" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="6" />
-                                 <Label fx:id="pWr" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="5" />
-                                 <Label fx:id="pM" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="4" />
-                                 <Label fx:id="pE" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="3" />
-                                 <Label fx:id="pF" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="2" />
-                                 <Label fx:id="pD" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="1" />
+                                 <TextField fx:id="pRw" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="6" />
+                                 <TextField fx:id="pWr" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="5" />
+                                 <TextField fx:id="pM" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="4" />
+                                 <TextField fx:id="pE" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="3" />
+                                 <TextField fx:id="pF" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="2" />
+                                 <TextField fx:id="pD" prefHeight="106.0" prefWidth="75.0" GridPane.rowIndex="1" />
                                  <Label fx:id="welcomeText11111111211" prefHeight="18.0" prefWidth="111.0" rotate="90.0" text="   Zeugnisse" GridPane.columnIndex="1" />
-                                 <Label fx:id="zD" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                 <Label fx:id="zF" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                 <Label fx:id="zE" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                 <Label fx:id="zM" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                 <Label fx:id="zWr" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                 <Label fx:id="zRw" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                 <Label fx:id="zG" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                 <Label fx:id="zTu" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                                 <Label fx:id="zIdaf" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                                 <Label fx:id="zIdpa" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                 <TextField fx:id="zD" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 <TextField fx:id="zF" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 <TextField fx:id="zE" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                 <TextField fx:id="zM" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                 <TextField fx:id="zWr" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                 <TextField fx:id="zRw" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                 <TextField fx:id="zG" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                 <TextField fx:id="zTu" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                 <TextField fx:id="zIdaf" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                 <TextField fx:id="zIdpa" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                                  <Label prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                                  <Label fx:id="welcomeText111111112111" prefHeight="18.0" prefWidth="111.0" rotate="90.0" text="   Fachnoten" GridPane.columnIndex="2">
                                     <font>

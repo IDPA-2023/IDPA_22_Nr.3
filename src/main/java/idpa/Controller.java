@@ -47,6 +47,12 @@ public class Controller {
     private TextField dM;
     @FXML
     private TextField dS;
+    @FXML
+    private TextField pD;
+    @FXML
+    private TextField zD;
+    @FXML
+    private TextField FnD;
 
     @FXML
     private TextField m1;
@@ -58,6 +64,10 @@ public class Controller {
     private TextField m4;
     @FXML
     private TextField mS;
+    @FXML
+    private TextField pM;
+    @FXML
+    private TextField zM;
 
     @FXML
     private TextField f1;
@@ -71,6 +81,10 @@ public class Controller {
     private TextField fS;
     @FXML
     private TextField fM;
+    @FXML
+    private TextField pF;
+    @FXML
+    private TextField zF;
 
     @FXML
     private TextField e1;
@@ -88,6 +102,10 @@ public class Controller {
     private TextField eS;
     @FXML
     private TextField eM;
+    @FXML
+    private TextField pE;
+    @FXML
+    private TextField zE;
 
     @FXML
     private TextField wr1;
@@ -103,6 +121,10 @@ public class Controller {
     private TextField wr6;
     @FXML
     private TextField wrS;
+    @FXML
+    private TextField pWR;
+    @FXML
+    private TextField zWR;
 
     @FXML
     private TextField rw1;
@@ -118,6 +140,10 @@ public class Controller {
     private TextField rw6;
     @FXML
     private TextField rwS;
+    @FXML
+    private TextField pRW;
+    @FXML
+    private TextField zRW;
 
     @FXML
     private TextField g1;
@@ -127,19 +153,27 @@ public class Controller {
     private TextField g3;
     @FXML
     private TextField g4;
+    @FXML
+    private TextField zG;
 
     @FXML
     private TextField tu3;
     @FXML
     private TextField tu4;
+    @FXML
+    private TextField zTU;
 
     @FXML
     private TextField idaf3;
     @FXML
     private TextField idaf4;
+    @FXML
+    private TextField zIDAF;
 
     @FXML
     private TextField idpa6;
+    @FXML
+    private TextField zIDPA;
 
     boolean allFieldsFilled = true;
     String filePath = "data.json";
@@ -245,8 +279,8 @@ public class Controller {
                     faecher.get(i-1).setZeugnisnoten(noten);
                     faecher.get(i-1).setSchriftlich(Double.parseDouble(faecherCSV[7]));
                     faecher.get(i-1).setMündlich(Double.parseDouble(faecherCSV[8]));
-                    faecher.get(i-1).setErfahrungsnote(Double.parseDouble(faecherCSV[9]));
-                    faecher.get(i-1).setPrüfungsnote(Double.parseDouble(faecherCSV[10]));
+                    faecher.get(i-1).setErfahrungsnotePos1(Double.parseDouble(faecherCSV[9]));
+                    faecher.get(i-1).setPrüfungsnotePos2(Double.parseDouble(faecherCSV[10]));
                 }
             }
         }
@@ -347,8 +381,6 @@ public class Controller {
                             break;
                         } else {
                             allFieldsFilled = true;
-                            // schriftlich berechnen
-
                         }
                     } catch (NumberFormatException e) {
                         allFieldsFilled = false;
@@ -359,7 +391,7 @@ public class Controller {
         }
 
         if (allFieldsFilled) {
-            // berechnen
+            // daten als "Fach" objekt speichern und berechnen
             Fach d = new Fach("Deutsch");
             ArrayList<Double> dNoten = new ArrayList<>();
             d.setZeugnisnoten(new ArrayList<>(Arrays.asList(
@@ -371,6 +403,11 @@ public class Controller {
                     Double.parseDouble(d6.getText()))));
             d.setSchriftlich(Double.parseDouble(dS.getText()));
             d.setMündlich(Double.parseDouble(dM.getText()));
+            d.setErfahrungsnotePos1(d.getPos1());
+            d.setPrüfungsnotePos2(d.getPos2());
+            zD.setText(d.getErfahrungsnotePos1()+"");
+            pD.setText(d.getPrüfungsnotePos2()+"");
+            FnD.setText(d.);
 
             Fach m = new Fach("Mathematik");
             ArrayList<Double> mNoten = new ArrayList<>();
@@ -380,6 +417,8 @@ public class Controller {
                     Double.parseDouble(m3.getText()),
                     Double.parseDouble(m4.getText()))));
             m.setSchriftlich(Double.parseDouble(mS.getText()));
+            m.setErfahrungsnotePos1(m.getPos1());
+            m.setPrüfungsnotePos2(m.getPos2());
 
             Fach e = new Fach("Englisch");
             ArrayList<Double> eNoten = new ArrayList<>();
@@ -392,6 +431,8 @@ public class Controller {
                     Double.parseDouble(e6.getText()))));
             e.setSchriftlich(Double.parseDouble(eS.getText()));
             e.setMündlich(Double.parseDouble(eM.getText()));
+            e.setErfahrungsnotePos1(e.getPos1());
+            e.setPrüfungsnotePos2(e.getPos2());
 
             Fach f = new Fach("Französisch");
             ArrayList<Double> fNoten = new ArrayList<>();
@@ -402,6 +443,8 @@ public class Controller {
                     Double.parseDouble(f4.getText()))));
             f.setSchriftlich(Double.parseDouble(fS.getText()));
             f.setMündlich(Double.parseDouble(fM.getText()));
+            f.setErfahrungsnotePos1(f.getPos1());
+            f.setPrüfungsnotePos2(f.getPos2());
 
             Fach wr = new Fach("Wirtschaft und Recht");
             ArrayList<Double> wrNoten = new ArrayList<>();
@@ -413,6 +456,8 @@ public class Controller {
                     Double.parseDouble(wr5.getText()),
                     Double.parseDouble(wr6.getText()))));
             wr.setSchriftlich(Double.parseDouble(wrS.getText()));
+            wr.setErfahrungsnotePos1(wr.getPos1());
+            wr.setPrüfungsnotePos2(wr.getPos2());
 
             Fach rw = new Fach("Finanz- und Rechnungswesen");
             ArrayList<Double> rwNoten = new ArrayList<>();
@@ -424,6 +469,8 @@ public class Controller {
                     Double.parseDouble(rw5.getText()),
                     Double.parseDouble(rw6.getText()))));
             rw.setSchriftlich(Double.parseDouble(rwS.getText()));
+            rw.setErfahrungsnotePos1(rw.getPos1());
+            rw.setPrüfungsnotePos2(rw.getPos2());
 
             Fach g = new Fach("Geschichte und Politik");
             ArrayList<Double> gNoten = new ArrayList<>();
@@ -432,23 +479,28 @@ public class Controller {
                     Double.parseDouble(f2.getText()),
                     Double.parseDouble(f3.getText()),
                     Double.parseDouble(f4.getText()))));
+            g.setErfahrungsnotePos1(g.getPos1());
 
             Fach tu = new Fach("Technik und Umwelt");
             ArrayList<Double> tuNoten = new ArrayList<>();
             tu.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(tu3.getText()),
                     Double.parseDouble(tu4.getText()))));
+            tu.setErfahrungsnotePos1(Double.parseDouble(tu4.getText()));
 
             Fach idaf = new Fach("Informatik und Digitale Arbeit");
             ArrayList<Double> idafNoten = new ArrayList<>();
             idaf.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(idaf3.getText()),
                     Double.parseDouble(idaf4.getText()))));
+            idaf.setErfahrungsnotePos1(idaf.getPos1());
 
             Fach idpa = new Fach("Informatik und Programmieren");
             ArrayList<Double> idpaNoten = new ArrayList<>();
             idaf.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(idpa6.getText()))));
+            idaf.setErfahrungsnotePos1(idaf.getPos1());
+
 
             // Remove all data series from line chart
             lineChart.getData().removeAll(lineChart.getData());
@@ -486,7 +538,6 @@ public class Controller {
                 lineChart.getData().add(series);
             }
 
-
             NumberAxis yAxis = (NumberAxis) lineChart.getYAxis();
             yAxis.setUpperBound(6.5);
             yAxis.setTickUnit(0.5);
@@ -504,11 +555,9 @@ public class Controller {
             alert.setHeaderText("Ups...");
             alert.setContentText("Bitte verwenden Sie Zahlen von 1-6 \nmit einem Abstand von 0.5");
 
-            //Set icon for error Message
+            // Set icon for error Message
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(new Image("prohibition.png"));
-
-
 
             DialogPane dialogPane = alert.getDialogPane();
             dialogPane.setStyle("-fx-background-color: #FFC0CB;");

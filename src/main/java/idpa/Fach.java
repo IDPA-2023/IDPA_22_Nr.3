@@ -7,8 +7,8 @@ public class Fach {
     private ArrayList<Double> zeugnisnoten;
     private double schriftlich;
     private double mündlich;
-    private double erfahrungsnote;
-    private double prüfungsnote;
+    private double erfahrungsnotePos1;
+    private double prüfungsnotePos2;
 
     public Fach(String name) {
         this.name = name;
@@ -38,26 +38,21 @@ public class Fach {
     public void setMündlich(double mündlich) {
         this.mündlich = mündlich;
     }
-    public double getErfahrungsnote() {
-        return erfahrungsnote;
+    public double getErfahrungsnotePos1() {
+        return erfahrungsnotePos1;
     }
-    public void setErfahrungsnote(double erfahrungsnote) {
-        this.erfahrungsnote = erfahrungsnote;
+    public void setErfahrungsnotePos1(double erfahrungsnotePos2) {
+        this.erfahrungsnotePos1 = erfahrungsnotePos2;
     }
-    public double getPrüfungsnote() {
-        return prüfungsnote;
+    public double getPrüfungsnotePos2() {
+        return prüfungsnotePos2;
     }
-    public void setPrüfungsnote(double prüfungsnote) {
-        this.prüfungsnote = prüfungsnote;
+    public void setPrüfungsnotePos2(double prüfungsnotePos2) {
+        this.prüfungsnotePos2 = prüfungsnotePos2;
     }
 
     // position 1 (erfahrungsnote, z) berechnen
     public double getPos1() {
-        return (schriftlich+mündlich)/2;
-    }
-
-    // position 2 (prüfungsnote, p) berechnen
-    public double getPos2() {
         Double total = 0.0;
         int validNoten = 0;
         for(Double note : zeugnisnoten) {
@@ -68,4 +63,11 @@ public class Fach {
         }
         return total/validNoten;
     }
+
+    // position 2 (prüfungsnote, p) berechnen
+    public double getPos2() {
+        return (schriftlich+mündlich)/2;
+    }
+
+    // ToDo: Fachnoten berechnen und speichern, pos1 und pos2 speichern
 }
