@@ -195,103 +195,9 @@ public class Controller {
 
     boolean allFieldsFilled = true;
     String filePath = "data.json";
-
-    public void save() {
-        JSONObject jsonObject = new JSONObject();
-
-        // Define the names and order of the TextFields
-        String[] fieldNames = {"d1", "d2", "d3", "d4", "d5", "d6", "dM", "dS",
-                "m1", "m2", "m3", "m4", "mS",
-                "e1", "e2", "e3", "e4", "e5", "e6", "eS", "eM",
-                "f1", "f2", "f3", "f4", "fS", "fM",
-                "wr1", "wr2", "wr3", "wr4", "wr5", "wr6", "wrS",
-                "rw1", "rw2", "rw3", "rw4", "rw5", "rw6", "rwS",
-                "g1", "g2", "g3", "g4",
-                "tu3", "tu4",
-                "idaf3", "idaf4",
-                "idpa6"
-        };
-        TextField[] fields = {d1, d2, d3, d4, d5, d6, dM, dS,
-                m1, m2, m3, m4, mS,
-                e1, e2, e3, e4, e5, e6, eS, eM,
-                f1, f2, f3, f4, fS, fM,
-                wr1, wr2, wr3, wr4, wr5, wr6, wrS,
-                rw1, rw2, rw3, rw4, rw5, rw6, rwS,
-                g1, g2, g3, g4,
-                tu3, tu4,
-                idaf3, idaf4,
-                idpa6
-        };
-
-        // Loop through the TextFields and add their values to the JSONObject
-        for (int i = 0; i < fieldNames.length; i++) {
-            String value = fields[i].getText();
-            if (value != null && !value.isEmpty()) {
-                jsonObject.put(fieldNames[i], value);
-            } else {
-                jsonObject.put(fieldNames[i], "");
-            }
-        }
-
-
-        try (FileWriter fileWriter = new FileWriter(filePath)) {
-            fileWriter.write(JSONValue.toJSONString(jsonObject));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void initialize() {
-        initial();
-    }
-
-    public void import_csv() {
-        ArrayList<Fach> faecher = new ArrayList<Fach>();
-        String line = " ";
-        String splitBy = ",";
-        try {
-            // parsing a CSV file into BufferedReader class constructor
-            BufferedReader br = new BufferedReader(new FileReader(String.valueOf(App.class.getResource("data.csv").getPath())));
-            for(int i = 0; (line = br.readLine()) != null; i++) {
-                String[] faecherCSV = line.split(splitBy);
-                if (i>=1) {
-                    // add read data as "Fach" to faecher list
-                    faecher.add(new Fach(faecherCSV[0]));
-                    ArrayList<Double> noten = new ArrayList<>(List.of(
-                            Double.parseDouble(faecherCSV[1]),
-                            Double.parseDouble(faecherCSV[2]),
-                            Double.parseDouble(faecherCSV[3]),
-                            Double.parseDouble(faecherCSV[4]),
-                            Double.parseDouble(faecherCSV[5]),
-                            Double.parseDouble(faecherCSV[6])));
-                    faecher.get(i-1).setZeugnisnoten(noten);
-                    faecher.get(i-1).setSchriftlich(Double.parseDouble(faecherCSV[7]));
-                    faecher.get(i-1).setMündlich(Double.parseDouble(faecherCSV[8]));
-                    faecher.get(i-1).setErfahrungsnotePos1(Double.parseDouble(faecherCSV[9]));
-                    faecher.get(i-1).setPrüfungsnotePos2(Double.parseDouble(faecherCSV[10]));
-
-                }
-                d1.setText(faecherCSV[1]);
-                d2.setText(faecherCSV[2]);
-                d3.setText(faecherCSV[3]);
-                d4.setText(faecherCSV[4]);
-                d5.setText(faecherCSV[5]);
-                d6.setText(faecherCSV[6]);
-                dS.setText(faecherCSV[7]);
-                dM.setText(faecherCSV[8]);
-                pD.setText(faecherCSV[9]);
-                zD.setText(faecherCSV[10]);
-                FnD.setText(faecherCSV[11]);
-                save();
-            }
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    ArrayList<Fach> faecher = new ArrayList<Fach>();
 
     public void initial() {
-
         try (FileReader fileReader = new FileReader(filePath)) {
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject) jsonParser.parse(fileReader);
@@ -361,6 +267,178 @@ public class Controller {
         }
     }
 
+    public void save() {
+        JSONObject jsonObject = new JSONObject();
+
+        // Define the names and order of the TextFields
+        String[] fieldNames = {"d1", "d2", "d3", "d4", "d5", "d6", "dM", "dS",
+                "m1", "m2", "m3", "m4", "mS",
+                "e1", "e2", "e3", "e4", "e5", "e6", "eS", "eM",
+                "f1", "f2", "f3", "f4", "fS", "fM",
+                "wr1", "wr2", "wr3", "wr4", "wr5", "wr6", "wrS",
+                "rw1", "rw2", "rw3", "rw4", "rw5", "rw6", "rwS",
+                "g1", "g2", "g3", "g4",
+                "tu3", "tu4",
+                "idaf3", "idaf4",
+                "idpa6"
+        };
+        TextField[] fields = {d1, d2, d3, d4, d5, d6, dM, dS,
+                m1, m2, m3, m4, mS,
+                e1, e2, e3, e4, e5, e6, eS, eM,
+                f1, f2, f3, f4, fS, fM,
+                wr1, wr2, wr3, wr4, wr5, wr6, wrS,
+                rw1, rw2, rw3, rw4, rw5, rw6, rwS,
+                g1, g2, g3, g4,
+                tu3, tu4,
+                idaf3, idaf4,
+                idpa6
+        };
+
+        // Loop through the TextFields and add their values to the JSONObject
+        for (int i = 0; i < fieldNames.length; i++) {
+            String value = fields[i].getText();
+            if (value != null && !value.isEmpty()) {
+                jsonObject.put(fieldNames[i], value);
+            } else {
+                jsonObject.put(fieldNames[i], "");
+            }
+        }
+
+
+        try (FileWriter fileWriter = new FileWriter(filePath)) {
+            fileWriter.write(JSONValue.toJSONString(jsonObject));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void initialize() {
+        initial();
+    }
+
+    public void import_csv() {
+        String line = " ";
+        String splitBy = ",";
+        try {
+            // parsing a CSV file into BufferedReader class constructor
+            BufferedReader br = new BufferedReader(new FileReader(String.valueOf(App.class.getResource("data.csv").getPath())));
+            for(int i = 0; (line = br.readLine()) != null; i++) {
+                String[] faecherCSV = line.split(splitBy);
+                if (i>=1) {
+                    // add read data as "Fach" to faecher list
+                    faecher.add(new Fach(faecherCSV[0]));
+                    ArrayList<Double> noten = new ArrayList<>(List.of(
+                            Double.parseDouble(faecherCSV[1]),
+                            Double.parseDouble(faecherCSV[2]),
+                            Double.parseDouble(faecherCSV[3]),
+                            Double.parseDouble(faecherCSV[4]),
+                            Double.parseDouble(faecherCSV[5]),
+                            Double.parseDouble(faecherCSV[6])));
+                    faecher.get(i-1).setZeugnisnoten(noten);
+                    faecher.get(i-1).setSchriftlich(Double.parseDouble(faecherCSV[7]));
+                    faecher.get(i-1).setMündlich(Double.parseDouble(faecherCSV[8]));
+                    faecher.get(i-1).setErfahrungsnotePos1(Double.parseDouble(faecherCSV[9]));
+                    faecher.get(i-1).setPrüfungsnotePos2(Double.parseDouble(faecherCSV[10]));
+
+                }
+            }
+            d1.setText(faecher.get(0).getZeugnisnotenBySemester(1)+"");
+            d2.setText(faecher.get(0).getZeugnisnotenBySemester(2)+"");
+            d3.setText(faecher.get(0).getZeugnisnotenBySemester(3)+"");
+            d4.setText(faecher.get(0).getZeugnisnotenBySemester(4)+"");
+            d5.setText(faecher.get(0).getZeugnisnotenBySemester(5)+"");
+            d6.setText(faecher.get(0).getZeugnisnotenBySemester(6)+"");
+            dM.setText(faecher.get(0).getMündlich()+"");
+            dS.setText(faecher.get(0).getSchriftlich()+"");
+            zD.setText(faecher.get(0).getErfahrungsnotePos1()+"");
+            pD.setText(faecher.get(0).getPrüfungsnotePos2()+"");
+            FnD.setText(faecher.get(0).getFachnote()+"");
+
+            f1.setText(faecher.get(1).getZeugnisnotenBySemester(1)+"");
+            f2.setText(faecher.get(1).getZeugnisnotenBySemester(2)+"");
+            f3.setText(faecher.get(1).getZeugnisnotenBySemester(3)+"");
+            f4.setText(faecher.get(1).getZeugnisnotenBySemester(4)+"");
+            fM.setText(faecher.get(1).getMündlich()+"");
+            fS.setText(faecher.get(1).getSchriftlich()+"");
+            zF.setText(faecher.get(1).getErfahrungsnotePos1()+"");
+            pF.setText(faecher.get(1).getPrüfungsnotePos2()+"");
+            FnF.setText(faecher.get(1).getFachnote()+"");
+
+            e1.setText(faecher.get(2).getZeugnisnotenBySemester(1)+"");
+            e2.setText(faecher.get(2).getZeugnisnotenBySemester(2)+"");
+            e3.setText(faecher.get(2).getZeugnisnotenBySemester(3)+"");
+            e4.setText(faecher.get(2).getZeugnisnotenBySemester(4)+"");
+            e5.setText(faecher.get(2).getZeugnisnotenBySemester(5)+"");
+            e6.setText(faecher.get(2).getZeugnisnotenBySemester(6)+"");
+            eS.setText(faecher.get(2).getSchriftlich()+"");
+            zE.setText(faecher.get(2).getErfahrungsnotePos1()+"");
+            pE.setText(faecher.get(2).getPrüfungsnotePos2()+"");
+            FnE.setText(faecher.get(2).getFachnote()+"");
+
+            m1.setText(faecher.get(3).getZeugnisnotenBySemester(1)+"");
+            m2.setText(faecher.get(3).getZeugnisnotenBySemester(2)+"");
+            m3.setText(faecher.get(3).getZeugnisnotenBySemester(3)+"");
+            m4.setText(faecher.get(3).getZeugnisnotenBySemester(4)+"");
+            mS.setText(faecher.get(3).getSchriftlich()+"");
+            zM.setText(faecher.get(3).getErfahrungsnotePos1()+"");
+            pM.setText(faecher.get(3).getPrüfungsnotePos2()+"");
+            FnM.setText(faecher.get(3).getFachnote()+"");
+
+            wr1.setText(faecher.get(4).getZeugnisnotenBySemester(1)+"");
+            wr2.setText(faecher.get(4).getZeugnisnotenBySemester(2)+"");
+            wr3.setText(faecher.get(4).getZeugnisnotenBySemester(3)+"");
+            wr4.setText(faecher.get(4).getZeugnisnotenBySemester(4)+"");
+            wr5.setText(faecher.get(4).getZeugnisnotenBySemester(5)+"");
+            wr6.setText(faecher.get(4).getZeugnisnotenBySemester(6)+"");
+            wrS.setText(faecher.get(4).getSchriftlich()+"");
+            zWR.setText(faecher.get(4).getErfahrungsnotePos1()+"");
+            pWR.setText(faecher.get(4).getPrüfungsnotePos2()+"");
+            FnWR.setText(faecher.get(4).getFachnote()+"");
+
+            rw1.setText(faecher.get(5).getZeugnisnotenBySemester(1)+"");
+            rw2.setText(faecher.get(5).getZeugnisnotenBySemester(2)+"");
+            rw3.setText(faecher.get(5).getZeugnisnotenBySemester(3)+"");
+            rw4.setText(faecher.get(5).getZeugnisnotenBySemester(4)+"");
+            rw5.setText(faecher.get(5).getZeugnisnotenBySemester(5)+"");
+            rw6.setText(faecher.get(5).getZeugnisnotenBySemester(6)+"");
+            rwS.setText(faecher.get(5).getSchriftlich()+"");
+            zRW.setText(faecher.get(5).getErfahrungsnotePos1()+"");
+            pRW.setText(faecher.get(5).getPrüfungsnotePos2()+"");
+            FnRW.setText(faecher.get(5).getFachnote()+"");
+
+            g1.setText(faecher.get(6).getZeugnisnotenBySemester(1)+"");
+            g2.setText(faecher.get(6).getZeugnisnotenBySemester(2)+"");
+            g3.setText(faecher.get(6).getZeugnisnotenBySemester(3)+"");
+            g4.setText(faecher.get(6).getZeugnisnotenBySemester(4)+"");
+            zG.setText(faecher.get(6).getErfahrungsnotePos1()+"");
+            FnG.setText(faecher.get(6).getFachnote()+"");
+
+            tu3.setText(faecher.get(7).getZeugnisnotenBySemester(1)+"");
+            tu4.setText(faecher.get(7).getZeugnisnotenBySemester(2)+"");
+            zTU.setText(faecher.get(7).getErfahrungsnotePos1()+"");
+            FnTU.setText(faecher.get(7).getFachnote()+"");
+
+            idpa6.setText(faecher.get(8).getZeugnisnotenBySemester(1)+"");
+            zIDPA.setText(faecher.get(8).getErfahrungsnotePos1()+"");
+            FnIDPA.setText(faecher.get(8).getFachnote()+"");
+
+            idaf3.setText(faecher.get(9).getZeugnisnotenBySemester(1)+"");
+            idaf4.setText(faecher.get(9).getZeugnisnotenBySemester(2)+"");
+            zIDAF.setText(faecher.get(9).getErfahrungsnotePos1()+"");
+            FnIDAF.setText(faecher.get(9).getFachnote()+"");
+
+            save();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void export_csv() throws IOException {
+        berechnen();
+
+    }
+
     public void delete() {
             for (Node node : grid1.getChildren()) {
                 if (node instanceof TextField) {
@@ -395,7 +473,6 @@ public class Controller {
         if (allFieldsFilled) {
             // daten als "Fach" objekt speichern und berechnen
             Fach d = new Fach("Deutsch");
-            ArrayList<Double> dNoten = new ArrayList<>();
             d.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(d1.getText()),
                     Double.parseDouble(d2.getText()),
@@ -410,23 +487,24 @@ public class Controller {
             zD.setText(d.getErfahrungsnotePos1()+"");
             pD.setText(d.getPrüfungsnotePos2()+"");
             FnD.setText(d.getFachnote()+"");
+            faecher.add(d);
 
-            Fach m = new Fach("Mathematik");
-            ArrayList<Double> mNoten = new ArrayList<>();
-            m.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                    Double.parseDouble(m1.getText()),
-                    Double.parseDouble(m2.getText()),
-                    Double.parseDouble(m3.getText()),
-                    Double.parseDouble(m4.getText()))));
-            m.setSchriftlich(Double.parseDouble(mS.getText()));
-            m.setErfahrungsnotePos1(m.getPos1());
-            m.setPrüfungsnotePos2(m.getPos2());
-            zM.setText(m.getErfahrungsnotePos1()+"");
-            pM.setText(m.getPrüfungsnotePos2()+"");
-            FnM.setText(m.getFachnote()+"");
+            Fach f = new Fach("Französisch");
+            f.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(f1.getText()),
+                    Double.parseDouble(f2.getText()),
+                    Double.parseDouble(f3.getText()),
+                    Double.parseDouble(f4.getText()))));
+            f.setSchriftlich(Double.parseDouble(fS.getText()));
+            f.setMündlich(Double.parseDouble(fM.getText()));
+            f.setErfahrungsnotePos1(f.getPos1());
+            f.setPrüfungsnotePos2(f.getPos2());
+            zF.setText(f.getErfahrungsnotePos1()+"");
+            pF.setText(f.getPrüfungsnotePos2()+"");
+            FnF.setText(f.getFachnote()+"");
+            faecher.add(f);
 
             Fach e = new Fach("Englisch");
-            ArrayList<Double> eNoten = new ArrayList<>();
             e.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(e1.getText()),
                     Double.parseDouble(e2.getText()),
@@ -441,24 +519,23 @@ public class Controller {
             zE.setText(e.getErfahrungsnotePos1()+"");
             pE.setText(e.getPrüfungsnotePos2()+"");
             FnE.setText(e.getFachnote()+"");
+            faecher.add(e);
 
-            Fach f = new Fach("Französisch");
-            ArrayList<Double> fNoten = new ArrayList<>();
-            f.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                    Double.parseDouble(f1.getText()),
-                    Double.parseDouble(f2.getText()),
-                    Double.parseDouble(f3.getText()),
-                    Double.parseDouble(f4.getText()))));
-            f.setSchriftlich(Double.parseDouble(fS.getText()));
-            f.setMündlich(Double.parseDouble(fM.getText()));
-            f.setErfahrungsnotePos1(f.getPos1());
-            f.setPrüfungsnotePos2(f.getPos2());
-            zF.setText(f.getErfahrungsnotePos1()+"");
-            pF.setText(f.getPrüfungsnotePos2()+"");
-            FnF.setText(f.getFachnote()+"");
+            Fach m = new Fach("Mathematik");
+            m.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(m1.getText()),
+                    Double.parseDouble(m2.getText()),
+                    Double.parseDouble(m3.getText()),
+                    Double.parseDouble(m4.getText()))));
+            m.setSchriftlich(Double.parseDouble(mS.getText()));
+            m.setErfahrungsnotePos1(m.getPos1());
+            m.setPrüfungsnotePos2(m.getPos2());
+            zM.setText(m.getErfahrungsnotePos1()+"");
+            pM.setText(m.getPrüfungsnotePos2()+"");
+            FnM.setText(m.getFachnote()+"");
+            faecher.add(m);
 
             Fach wr = new Fach("Wirtschaft und Recht");
-            ArrayList<Double> wrNoten = new ArrayList<>();
             wr.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(wr1.getText()),
                     Double.parseDouble(wr2.getText()),
@@ -472,9 +549,9 @@ public class Controller {
             zWR.setText(wr.getErfahrungsnotePos1()+"");
             pWR.setText(wr.getPrüfungsnotePos2()+"");
             FnWR.setText(wr.getFachnote()+"");
+            faecher.add(wr);
 
             Fach rw = new Fach("Finanz- und Rechnungswesen");
-            ArrayList<Double> rwNoten = new ArrayList<>();
             rw.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(rw1.getText()),
                     Double.parseDouble(rw2.getText()),
@@ -488,9 +565,9 @@ public class Controller {
             zRW.setText(rw.getErfahrungsnotePos1()+"");
             pRW.setText(rw.getPrüfungsnotePos2()+"");
             FnRW.setText(rw.getFachnote()+"");
+            faecher.add(rw);
 
             Fach g = new Fach("Geschichte und Politik");
-            ArrayList<Double> gNoten = new ArrayList<>();
             g.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(f1.getText()),
                     Double.parseDouble(f2.getText()),
@@ -499,33 +576,33 @@ public class Controller {
             g.setErfahrungsnotePos1(g.getPos1());
             zG.setText(g.getErfahrungsnotePos1()+"");
             FnG.setText(zG.getText());
+            faecher.add(g);
 
             Fach tu = new Fach("Technik und Umwelt");
-            ArrayList<Double> tuNoten = new ArrayList<>();
             tu.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(tu3.getText()),
                     Double.parseDouble(tu4.getText()))));
             tu.setErfahrungsnotePos1(Double.parseDouble(tu4.getText()));
             zTU.setText(tu.getErfahrungsnotePos1()+"");
             FnTU.setText(zTU.getText());
+            faecher.add(tu);
 
-            Fach idaf = new Fach("Informatik und Digitale Arbeit");
-            ArrayList<Double> idafNoten = new ArrayList<>();
+            Fach idpa = new Fach("IDPA");
+            idpa.setZeugnisnoten(new ArrayList<>(Arrays.asList(
+                    Double.parseDouble(idpa6.getText()))));
+            idpa.setErfahrungsnotePos1(idpa.getPos1());
+            zIDPA.setText(idpa.getErfahrungsnotePos1()+"");
+            FnIDPA.setText(zIDPA.getText());
+            faecher.add(idpa);
+
+            Fach idaf = new Fach("IDAF");
             idaf.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(idaf3.getText()),
                     Double.parseDouble(idaf4.getText()))));
             idaf.setErfahrungsnotePos1(idaf.getPos1());
             zIDAF.setText(idaf.getErfahrungsnotePos1()+"");
             FnIDAF.setText(zIDAF.getText());
-
-            Fach idpa = new Fach("Informatik und Programmieren");
-            ArrayList<Double> idpaNoten = new ArrayList<>();
-            idaf.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                    Double.parseDouble(idpa6.getText()))));
-            idaf.setErfahrungsnotePos1(idaf.getPos1());
-            zIDPA.setText(d.getErfahrungsnotePos1()+"");
-            FnIDPA.setText(zIDAF.getText());
-
+            faecher.add(idaf);
 
             // Remove all data series from line chart
             lineChart.getData().removeAll(lineChart.getData());
