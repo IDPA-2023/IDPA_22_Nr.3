@@ -71,12 +71,22 @@ public class Fach {
 
     // position 2 (prüfungsnote, p) berechnen
     public double getPos2() {
-        setPrüfungsnotePos2((schriftlich+mündlich)/2);
-        return (schriftlich+mündlich)/2;
+        if(mündlich == 0.0) {
+            setPrüfungsnotePos2(schriftlich);
+            return schriftlich;
+        }
+        else {
+            setPrüfungsnotePos2((schriftlich+mündlich)/2);
+            return (schriftlich+mündlich)/2;
+        }
     }
 
     // Fachnote berechnen
     public double getFachnote() {
+        if(prüfungsnotePos2 == 0.0) {
+            setFachnote(erfahrungsnotePos1);
+            return erfahrungsnotePos1;
+        }
         setFachnote((erfahrungsnotePos1+prüfungsnotePos2)/2);
         return (prüfungsnotePos2+erfahrungsnotePos1)/2;
     }
