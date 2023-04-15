@@ -24,8 +24,8 @@ public class Fach {
     public ArrayList<Double> getZeugnisnoten() {
         return zeugnisnoten;
     }
-    public Double getZeugnisnotenByID(int id) {
-        return zeugnisnoten.get(id);
+    public Double getZeugnisnotenBySemester(int semester) {
+        return zeugnisnoten.get(semester-1);
     }
     public void setZeugnisnoten(ArrayList<Double> zeugnisnoten) {
         this.zeugnisnoten = zeugnisnoten;
