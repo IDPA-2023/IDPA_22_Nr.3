@@ -93,4 +93,70 @@ public class Fach {
         setFachnote((erfahrungsnotePos1+prüfungsnotePos2)/2);
         return (prüfungsnotePos2+erfahrungsnotePos1)/2;
     }
+
+    // Fach für CSV export
+    public String toCSV() {
+        String csv = name + ",";
+        // zeugnisnoten
+        if(zeugnisnoten.size() == 6) {
+            for (Double note : zeugnisnoten) {
+                csv += note + ",";
+            }
+        } else if(zeugnisnoten.size() == 4) {
+            for (Double note : zeugnisnoten) {
+                csv += note + ",";
+            }
+            csv += ",,";
+        } else if(zeugnisnoten.size() == 2) {
+            csv += ",,";
+            for (Double note : zeugnisnoten) {
+                csv += note + ",";
+            }
+            csv += ",,";
+        } else if(zeugnisnoten.size() == 1) {
+            csv += ",,,,,";
+            for (Double note : zeugnisnoten) {
+                csv += note + ",";
+            }
+        } else {
+            csv += ",,,,,,";
+        }
+
+        // schriftlich - falls vorhanden
+        if(schriftlich != 0.0) {
+            csv += schriftlich + ",";
+        } else {
+            csv += ",";
+        }
+
+        // mündlich - falls vorhanden
+        if(mündlich != 0.0) {
+            csv += mündlich + ",";
+        } else {
+            csv += ",";
+        }
+
+        // prüfungsnotePos2 - falls vorhanden
+        if(prüfungsnotePos2 != 0.0) {
+            csv += prüfungsnotePos2 + ",";
+        } else {
+            csv += ",";
+        }
+
+        // erfahrungsnotePos1 - falls vorhanden
+        if(erfahrungsnotePos1 != 0.0) {
+            csv += erfahrungsnotePos1 + ",";
+        } else {
+            csv += ",";
+        }
+
+        // fachnote - falls vorhanden
+        if(fachnote != 0.0) {
+            csv += fachnote;
+        } else {
+            csv += ",";
+        }
+
+        return csv += "\n";
+    }
 }

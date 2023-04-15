@@ -16,10 +16,7 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -436,7 +433,18 @@ public class Controller {
 
     public void export_csv() throws IOException {
         berechnen();
-
+        String csv = "Fach,1. Semester,2. Semester,3. Semester,4. Semester,5. Semester,6. Semester,schriftlich,mündlich,prüfungsnote,erfahrungsnote,fachnote\n";
+        for(Fach fach : faecher) {
+            csv += fach.toCSV();
+        }
+        try {
+            FileWriter file = new FileWriter(String.valueOf(App.class.getResource("data.csv").getPath()));
+            file.write(csv);
+            file.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
     public void delete() {
@@ -575,7 +583,7 @@ public class Controller {
                     Double.parseDouble(f4.getText()))));
             g.setErfahrungsnotePos1(g.getPos1());
             zG.setText(g.getErfahrungsnotePos1()+"");
-            FnG.setText(zG.getText());
+            FnG.setText(g.getFachnote()+"");
             faecher.add(g);
 
             Fach tu = new Fach("Technik und Umwelt");
@@ -584,7 +592,7 @@ public class Controller {
                     Double.parseDouble(tu4.getText()))));
             tu.setErfahrungsnotePos1(Double.parseDouble(tu4.getText()));
             zTU.setText(tu.getErfahrungsnotePos1()+"");
-            FnTU.setText(zTU.getText());
+            FnTU.setText(tu.getFachnote()+"");
             faecher.add(tu);
 
             Fach idpa = new Fach("IDPA");
@@ -592,7 +600,7 @@ public class Controller {
                     Double.parseDouble(idpa6.getText()))));
             idpa.setErfahrungsnotePos1(idpa.getPos1());
             zIDPA.setText(idpa.getErfahrungsnotePos1()+"");
-            FnIDPA.setText(zIDPA.getText());
+            FnIDPA.setText(idpa.getFachnote()+"");
             faecher.add(idpa);
 
             Fach idaf = new Fach("IDAF");
@@ -601,7 +609,7 @@ public class Controller {
                     Double.parseDouble(idaf4.getText()))));
             idaf.setErfahrungsnotePos1(idaf.getPos1());
             zIDAF.setText(idaf.getErfahrungsnotePos1()+"");
-            FnIDAF.setText(zIDAF.getText());
+            FnIDAF.setText(idaf.getFachnote()+"");
             faecher.add(idaf);
 
             // Remove all data series from line chart

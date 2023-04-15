@@ -227,7 +227,7 @@
                                  <DropShadow />
                               </effect>
                            </Button>
-                           <Button id="b3" layoutX="293.0" layoutY="715.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Export csv">
+                           <Button id="b3" layoutX="293.0" layoutY="715.0" mnemonicParsing="false" onAction="#export_csv" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Export csv">
                               <effect>
                                  <DropShadow />
                               </effect>
