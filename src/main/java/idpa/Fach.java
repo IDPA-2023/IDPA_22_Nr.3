@@ -9,6 +9,7 @@ public class Fach {
     private double mündlich;
     private double erfahrungsnotePos1;
     private double prüfungsnotePos2;
+    private double fachnote;
 
     public Fach(String name) {
         this.name = name;
@@ -50,6 +51,9 @@ public class Fach {
     public void setPrüfungsnotePos2(double prüfungsnotePos2) {
         this.prüfungsnotePos2 = prüfungsnotePos2;
     }
+    public void setFachnote(double fachnote) {
+        this.fachnote = fachnote;
+    }
 
     // position 1 (erfahrungsnote, z) berechnen
     public double getPos1() {
@@ -61,13 +65,19 @@ public class Fach {
                 validNoten++;
             }
         }
+        setErfahrungsnotePos1(total/validNoten);
         return total/validNoten;
     }
 
     // position 2 (prüfungsnote, p) berechnen
     public double getPos2() {
+        setPrüfungsnotePos2((schriftlich+mündlich)/2);
         return (schriftlich+mündlich)/2;
     }
 
-    // ToDo: Fachnoten berechnen und speichern, pos1 und pos2 speichern
+    // Fachnote berechnen
+    public double getFachnote() {
+        setFachnote((erfahrungsnotePos1+prüfungsnotePos2)/2);
+        return (prüfungsnotePos2+erfahrungsnotePos1)/2;
+    }
 }
