@@ -282,7 +282,7 @@ public class Controller {
                 pD.setText(faecherCSV[9]);
                 zD.setText(faecherCSV[10]);
                 FnD.setText(faecherCSV[11]);
-                //save();
+                save();
             }
         }
         catch (IOException e) {
