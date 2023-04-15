@@ -68,6 +68,8 @@ public class Controller {
     private TextField pM;
     @FXML
     private TextField zM;
+    @FXML
+    private TextField FnM;
 
     @FXML
     private TextField f1;
@@ -85,6 +87,8 @@ public class Controller {
     private TextField pF;
     @FXML
     private TextField zF;
+    @FXML
+    private TextField FnF;
 
     @FXML
     private TextField e1;
@@ -106,6 +110,8 @@ public class Controller {
     private TextField pE;
     @FXML
     private TextField zE;
+    @FXML
+    private TextField FnE;
 
     @FXML
     private TextField wr1;
@@ -125,6 +131,8 @@ public class Controller {
     private TextField pWR;
     @FXML
     private TextField zWR;
+    @FXML
+    private TextField FnWR;
 
     @FXML
     private TextField rw1;
@@ -144,6 +152,8 @@ public class Controller {
     private TextField pRW;
     @FXML
     private TextField zRW;
+    @FXML
+    private TextField FnRW;
 
     @FXML
     private TextField g1;
@@ -155,6 +165,8 @@ public class Controller {
     private TextField g4;
     @FXML
     private TextField zG;
+    @FXML
+    private TextField FnG;
 
     @FXML
     private TextField tu3;
@@ -162,6 +174,8 @@ public class Controller {
     private TextField tu4;
     @FXML
     private TextField zTU;
+    @FXML
+    private TextField FnTU;
 
     @FXML
     private TextField idaf3;
@@ -169,11 +183,15 @@ public class Controller {
     private TextField idaf4;
     @FXML
     private TextField zIDAF;
+    @FXML
+    private TextField FnIDAF;
 
     @FXML
     private TextField idpa6;
     @FXML
     private TextField zIDPA;
+    @FXML
+    private TextField FnIDPA;
 
     boolean allFieldsFilled = true;
     String filePath = "data.json";
@@ -407,7 +425,7 @@ public class Controller {
             d.setPrüfungsnotePos2(d.getPos2());
             zD.setText(d.getErfahrungsnotePos1()+"");
             pD.setText(d.getPrüfungsnotePos2()+"");
-            FnD.setText(d.);
+            FnD.setText(d.getFachnote()+"");
 
             Fach m = new Fach("Mathematik");
             ArrayList<Double> mNoten = new ArrayList<>();
@@ -419,6 +437,9 @@ public class Controller {
             m.setSchriftlich(Double.parseDouble(mS.getText()));
             m.setErfahrungsnotePos1(m.getPos1());
             m.setPrüfungsnotePos2(m.getPos2());
+            zM.setText(d.getErfahrungsnotePos1()+"");
+            pM.setText(d.getPrüfungsnotePos2()+"");
+            FnM.setText(d.getFachnote()+"");
 
             Fach e = new Fach("Englisch");
             ArrayList<Double> eNoten = new ArrayList<>();
