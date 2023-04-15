@@ -302,16 +302,16 @@
                                        <Font name="System Bold" size="12.0" />
                                     </font>
                                  </Label>
-                                 <Label fx:id="FnD" prefHeight="50.0" prefWidth="114.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                 <Label fx:id="FnF" prefHeight="83.0" prefWidth="96.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                 <Label fx:id="FnE" prefHeight="51.0" prefWidth="136.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                 <Label fx:id="FnM" prefHeight="56.0" prefWidth="129.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                                 <Label fx:id="FnWr" prefHeight="51.0" prefWidth="141.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                                 <Label fx:id="FnRw" prefHeight="53.0" prefWidth="119.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                                 <Label fx:id="FnG" prefHeight="52.0" prefWidth="115.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                                 <Label fx:id="FnTu" prefHeight="116.0" prefWidth="96.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                                 <Label fx:id="FnIdaf" prefHeight="49.0" prefWidth="129.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                                 <Label fx:id="FnIdpa" prefHeight="48.0" prefWidth="114.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                                 <TextField fx:id="FnD" prefHeight="50.0" prefWidth="114.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                 <TextField fx:id="FnF" prefHeight="83.0" prefWidth="96.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                 <TextField fx:id="FnE" prefHeight="51.0" prefWidth="136.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                 <TextField fx:id="FnM" prefHeight="56.0" prefWidth="129.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                 <TextField fx:id="FnWr" prefHeight="51.0" prefWidth="141.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                 <TextField fx:id="FnRw" prefHeight="53.0" prefWidth="119.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                 <TextField fx:id="FnG" prefHeight="52.0" prefWidth="115.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                 <TextField fx:id="FnTu" prefHeight="116.0" prefWidth="96.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                 <TextField fx:id="FnIdaf" prefHeight="49.0" prefWidth="129.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                 <TextField fx:id="FnIdpa" prefHeight="48.0" prefWidth="114.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="10" />
                               </children>
                            </GridPane>
                            <ScrollPane layoutX="430.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" />
