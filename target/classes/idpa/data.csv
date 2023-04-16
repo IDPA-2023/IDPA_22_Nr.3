@@ -1,4 +1,11 @@
-Fach,1. Semester,2. Semester,3. Semester,4. Semester,5. Semester,6. Semester,schriftlich,mündlich,erfahrungsnote,prüfungsnote
-Deutsch,5,4,5,3,2,6,4,4,1,6
-Französisch,3.5,4,5,4,0,0,5,5,1,4
-TuU,0,0,5,5.5,0,0,0,0,3,4.5
+Fach,1. Semester,2. Semester,3. Semester,4. Semester,5. Semester,6. Semester,schriftlich,mündlich,prüfungsnote,erfahrungsnote,fachnote
+Deutsch,2.0,2.0,2.0,2.0,2.0,2.0,6.0,6.0,6.0,2.0,4.0
+Französisch,2.0,2.0,2.0,2.0,,,6.0,6.0,6.0,2.0,4.0
+Englisch,2.0,2.0,2.0,2.0,2.0,2.0,6.0,6.0,6.0,2.0,4.0
+Mathematik,2.0,2.0,2.0,2.0,,,6.0,,6.0,2.0,4.0
+Wirtschaft und Recht,2.0,2.0,2.0,2.0,2.0,2.0,6.0,,6.0,2.0,4.0
+Finanz- und Rechnungswesen,2.0,2.0,2.0,2.0,2.0,2.0,6.0,,6.0,2.0,4.0
+Geschichte und Politik,2.0,2.0,2.0,2.0,,,,,,2.0,2.0
+Technik und Umwelt,,,2.0,2.0,,,,,,2.0,2.0
+IDPA,,,,,,2.0,,,,2.0,2.0
+IDAF,,,2.0,2.0,,,,,,2.0,2.0
