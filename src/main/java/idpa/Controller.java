@@ -7,6 +7,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
@@ -189,6 +190,13 @@ public class Controller {
     private TextField zIDPA;
     @FXML
     private TextField FnIDPA;
+
+    @FXML
+    private Label gesamtnote;
+    @FXML
+    private Label anzahl_tiefnoten;
+    @FXML
+    private Label tiefpunkte;
 
     boolean allFieldsFilled = true;
     String filePath = "data.json";
@@ -612,6 +620,11 @@ public class Controller {
             FnIDAF.setText(idaf.getFachnote()+"");
             faecher.add(idaf);
 
+            // gesamtnote, anzahl tiefnoten und tiefpunkte berechnen
+            gesamtnote.setText(getGesamtnote()+"");
+            anzahl_tiefnoten.setText(getAnzahlTiefnoten()+"");
+            tiefpunkte.setText(getTiefpunkte()+"");
+
             // Remove all data series from line chart
             lineChart.getData().removeAll(lineChart.getData());
             // Define the subjects and their corresponding text fields
@@ -680,6 +693,35 @@ public class Controller {
         }
     }
 
-    // ToDo: ausfüllen (last 1, 2, 3)
+    public Double getGesamtnote() {
+        Double total = 0.0;
+        int validNoten = 0;
+        for(Fach fach : faecher) {
+            if(fach.getFachnote() > 0) {
+                total += fach.getFachnote();
+                validNoten++;
+            }
+        }
+        return total/validNoten;
+    }
 
+    public Integer getAnzahlTiefnoten() {
+        int anzahl = 0;
+        for(Fach fach : faecher) {
+            if(fach.getFachnote() > 0 && fach.getFachnote() < 4) {
+                anzahl++;
+            }
+        }
+        return anzahl;
+    }
+
+    public Double getTiefpunkte() {
+        Double tiefpunkte = 0.0;
+        for(Fach fach : faecher) {
+            if(fach.getFachnote() > 0 && fach.getFachnote() < 4) {
+                tiefpunkte += 4.0-fach.getFachnote();
+            }
+        }
+        return tiefpunkte;
+    }
 }

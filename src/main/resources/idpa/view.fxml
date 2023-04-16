@@ -340,9 +340,9 @@
                                  <Label prefHeight="18.0" prefWidth="438.0" text=" Gesamtnote (Durchschnitt mindestens 4.0)" />
                                  <Label prefHeight="18.0" prefWidth="463.0" text=" ungenügende Fachnoten (zulässig sind maximal 2 ungenügende Fachnoten)" GridPane.rowIndex="1" />
                                  <Label prefHeight="18.0" prefWidth="535.0" text=" Notenabweichung unter 4.0 (zulässig ist eine maximale Abweichung von 2 Noten)" GridPane.rowIndex="2" />
-                                 <Label fx:id="last1" prefHeight="30.0" prefWidth="381.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="1" />
-                                 <Label fx:id="last2" prefHeight="30.0" prefWidth="387.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                 <Label fx:id="last3" prefHeight="30.0" prefWidth="393.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 <Label fx:id="gesamtnote" prefHeight="30.0" prefWidth="381.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="1" />
+                                 <Label fx:id="anzahl_tiefnoten" prefHeight="30.0" prefWidth="387.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 <Label fx:id="tiefpunkte" prefHeight="30.0" prefWidth="393.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               </children>
                            </GridPane>
                         </children>
