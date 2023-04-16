@@ -294,8 +294,8 @@
                                  <Label fx:id="zRW" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                  <Label fx:id="zG" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                  <Label fx:id="zTU" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                                 <Label fx:id="zIDAF" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                                 <Label fx:id="zIDPA" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                 <Label fx:id="zIDPA" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                 <Label fx:id="zIDAF" prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                                  <Label prefHeight="106.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                                  <Label fx:id="welcomeText111111112111" prefHeight="18.0" prefWidth="111.0" rotate="90.0" text="   Fachnoten" GridPane.columnIndex="2">
                                     <font>
@@ -310,8 +310,8 @@
                                  <Label fx:id="FnRW" prefHeight="53.0" prefWidth="119.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                                  <Label fx:id="FnG" prefHeight="52.0" prefWidth="115.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
                                  <Label fx:id="FnTU" prefHeight="116.0" prefWidth="96.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                                 <Label fx:id="FnIDAF" prefHeight="49.0" prefWidth="129.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                                 <Label fx:id="FnIDPA" prefHeight="48.0" prefWidth="114.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                                 <Label fx:id="FnIDPA" prefHeight="49.0" prefWidth="129.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                                 <Label fx:id="FnIDAF" prefHeight="48.0" prefWidth="114.0" style="-fx-background-color: #90EE90;" GridPane.columnIndex="2" GridPane.rowIndex="10" />
                               </children>
                            </GridPane>
                            <ScrollPane layoutX="430.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" />
