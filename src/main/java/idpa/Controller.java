@@ -46,11 +46,11 @@ public class Controller {
     @FXML
     private TextField dS;
     @FXML
-    private TextField pD;
+    private Label pD;
     @FXML
-    private TextField zD;
+    private Label zD;
     @FXML
-    private TextField FnD;
+    private Label FnD;
 
     @FXML
     private TextField m1;
@@ -63,11 +63,11 @@ public class Controller {
     @FXML
     private TextField mS;
     @FXML
-    private TextField pM;
+    private Label pM;
     @FXML
-    private TextField zM;
+    private Label zM;
     @FXML
-    private TextField FnM;
+    private Label FnM;
 
     @FXML
     private TextField f1;
@@ -82,11 +82,11 @@ public class Controller {
     @FXML
     private TextField fM;
     @FXML
-    private TextField pF;
+    private Label pF;
     @FXML
-    private TextField zF;
+    private Label zF;
     @FXML
-    private TextField FnF;
+    private Label FnF;
 
     @FXML
     private TextField e1;
@@ -105,11 +105,11 @@ public class Controller {
     @FXML
     private TextField eM;
     @FXML
-    private TextField pE;
+    private Label pE;
     @FXML
-    private TextField zE;
+    private Label zE;
     @FXML
-    private TextField FnE;
+    private Label FnE;
 
     @FXML
     private TextField wr1;
@@ -126,11 +126,11 @@ public class Controller {
     @FXML
     private TextField wrS;
     @FXML
-    private TextField pWR;
+    private Label pWR;
     @FXML
-    private TextField zWR;
+    private Label zWR;
     @FXML
-    private TextField FnWR;
+    private Label FnWR;
 
     @FXML
     private TextField rw1;
@@ -147,11 +147,11 @@ public class Controller {
     @FXML
     private TextField rwS;
     @FXML
-    private TextField pRW;
+    private Label pRW;
     @FXML
-    private TextField zRW;
+    private Label zRW;
     @FXML
-    private TextField FnRW;
+    private Label FnRW;
 
     @FXML
     private TextField g1;
@@ -162,34 +162,34 @@ public class Controller {
     @FXML
     private TextField g4;
     @FXML
-    private TextField zG;
+    private Label zG;
     @FXML
-    private TextField FnG;
+    private Label FnG;
 
     @FXML
     private TextField tu3;
     @FXML
     private TextField tu4;
     @FXML
-    private TextField zTU;
+    private Label zTU;
     @FXML
-    private TextField FnTU;
+    private Label FnTU;
 
     @FXML
     private TextField idaf3;
     @FXML
     private TextField idaf4;
     @FXML
-    private TextField zIDAF;
+    private Label zIDAF;
     @FXML
-    private TextField FnIDAF;
+    private Label FnIDAF;
 
     @FXML
     private TextField idpa6;
     @FXML
-    private TextField zIDPA;
+    private Label zIDPA;
     @FXML
-    private TextField FnIDPA;
+    private Label FnIDPA;
 
     @FXML
     private Label gesamtnote;
@@ -200,7 +200,7 @@ public class Controller {
 
     boolean allFieldsFilled = true;
     String filePath = "data.json";
-    ArrayList<Fach> faecher = new ArrayList<Fach>();
+    ArrayList<Fach> faecher = new ArrayList<>();
 
     public void initial() {
         try (FileReader fileReader = new FileReader(filePath)) {
@@ -431,7 +431,6 @@ public class Controller {
             idaf4.setText(faecher.get(9).getZeugnisnotenBySemester(2)+"");
             zIDAF.setText(faecher.get(9).getErfahrungsnotePos1()+"");
             FnIDAF.setText(faecher.get(9).getFachnote()+"");
-
             save();
         }
         catch (IOException e) {
@@ -456,7 +455,8 @@ public class Controller {
     }
 
     public void delete() {
-            for (Node node : grid1.getChildren()) {
+        faecher.clear();
+        for (Node node : grid1.getChildren()) {
                 if (node instanceof TextField) {
                     TextField textField = (TextField) node;
                     textField.clear();
@@ -487,6 +487,7 @@ public class Controller {
         }
 
         if (allFieldsFilled) {
+            faecher.clear();
             // daten als "Fach" objekt speichern und berechnen
             Fach d = new Fach("Deutsch");
             d.setZeugnisnoten(new ArrayList<>(Arrays.asList(
