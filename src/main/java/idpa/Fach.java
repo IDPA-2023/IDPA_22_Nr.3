@@ -68,30 +68,33 @@ public class Fach {
                 validNoten++;
             }
         }
-        setErfahrungsnotePos1(total/validNoten);
-        return total/validNoten;
+        setErfahrungsnotePos1(Math.round((total/validNoten)*2)/2.0);
+        return Math.round((total/validNoten)*2)/2.0;
     }
 
     // position 2 (prüfungsnote, p) berechnen
     public double getPos2() {
+        Double pos2 = 0.0;
         if(mündlich == 0.0) {
-            setPrüfungsnotePos2(schriftlich);
-            return schriftlich;
+            pos2 = Math.round(schriftlich*2)/2.0;
         }
         else {
-            setPrüfungsnotePos2((schriftlich+mündlich)/2);
-            return (schriftlich+mündlich)/2;
+            pos2 = Math.round(((schriftlich+mündlich)/2)*2)/2.0;
         }
+        setPrüfungsnotePos2(pos2);
+        return pos2;
     }
 
     // Fachnote berechnen
     public double getFachnote() {
+        Double fachnote = 0.0;
         if(prüfungsnotePos2 == 0.0) {
-            setFachnote(erfahrungsnotePos1);
-            return erfahrungsnotePos1;
+            fachnote = Math.round(erfahrungsnotePos1*2)/2.0;
+        } else {
+            fachnote = Math.round(((erfahrungsnotePos1+prüfungsnotePos2)/2)*2)/2.0;
         }
-        setFachnote((erfahrungsnotePos1+prüfungsnotePos2)/2);
-        return (prüfungsnotePos2+erfahrungsnotePos1)/2;
+        setFachnote(fachnote);
+        return fachnote;
     }
 
     // Fach für CSV export
