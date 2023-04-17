@@ -731,7 +731,7 @@ public class Controller {
             faecher.add(idaf);
 
             // gesamtnote, anzahl tiefnoten und tiefpunkte berechnen
-            gesamtnote.setText(getGesamtnote()+"");
+            gesamtnote.setText(((double) Math.round(getGesamtnote()*10)/10)+"");
             anzahl_tiefnoten.setText(getAnzahlTiefnoten()+"");
             tiefpunkte.setText(getTiefpunkte()+"");
 
