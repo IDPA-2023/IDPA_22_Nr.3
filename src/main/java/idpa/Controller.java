@@ -511,7 +511,7 @@ public class Controller {
                     if (textField.getText() != null && !textField.getText().isEmpty()) {
 
                     } else {
-                        if (textField.getId().matches(".\\d.")) {
+                        if (textField.getId().matches(".*\\d.*")) {
                             textField.setText("4");
                         }
                     }
