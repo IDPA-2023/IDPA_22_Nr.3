@@ -461,7 +461,7 @@ public class Controller {
                     TextField textField = (TextField) node;
                     textField.clear();
                 }
-            }
+        }
     }
 
     public void prognose() {
@@ -584,6 +584,12 @@ public class Controller {
                     } catch (NumberFormatException e) {
                         allFieldsFilled = false;
                         break;
+                    }
+                }
+                // check if TextField is not set and set it to 0.0
+                else {
+                    if (textField.getText().isEmpty()) {
+                        textField.setText("0");
                     }
                 }
             }
