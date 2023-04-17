@@ -109,55 +109,55 @@ public class Fach {
             for (Double note : zeugnisnoten) {
                 csv += note + ",";
             }
-            csv += ",,";
+            csv += "0,0,";
         } else if(zeugnisnoten.size() == 2) {
-            csv += ",,";
+            csv += "0,0,";
             for (Double note : zeugnisnoten) {
                 csv += note + ",";
             }
-            csv += ",,";
+            csv += "0,0,";
         } else if(zeugnisnoten.size() == 1) {
-            csv += ",,,,,";
+            csv += "0,0,0,0,0,";
             for (Double note : zeugnisnoten) {
                 csv += note + ",";
             }
         } else {
-            csv += ",,,,,,";
+            csv += "0,0,0,0,0,0,";
         }
 
         // schriftlich - falls vorhanden
         if(schriftlich != 0.0) {
             csv += schriftlich + ",";
         } else {
-            csv += ",";
+            csv += "0,";
         }
 
         // mündlich - falls vorhanden
         if(mündlich != 0.0) {
             csv += mündlich + ",";
         } else {
-            csv += ",";
+            csv += "0,";
         }
 
         // prüfungsnotePos2 - falls vorhanden
         if(prüfungsnotePos2 != 0.0) {
             csv += prüfungsnotePos2 + ",";
         } else {
-            csv += ",";
+            csv += "0,";
         }
 
         // erfahrungsnotePos1 - falls vorhanden
         if(erfahrungsnotePos1 != 0.0) {
             csv += erfahrungsnotePos1 + ",";
         } else {
-            csv += ",";
+            csv += "0,";
         }
 
         // fachnote - falls vorhanden
         if(fachnote != 0.0) {
             csv += fachnote;
         } else {
-            csv += ",";
+            csv += "0,";
         }
 
         return csv += "\n";

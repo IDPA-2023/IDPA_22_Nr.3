@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -322,14 +323,20 @@ public class Controller {
     }
 
     public void import_csv() {
-        String line = " ";
-        String splitBy = ",";
-        try {
-            // parsing a CSV file into BufferedReader class constructor
-            BufferedReader br = new BufferedReader(new FileReader(String.valueOf(App.class.getResource("data.csv").getPath())));
-            for(int i = 0; (line = br.readLine()) != null; i++) {
-                String[] faecherCSV = line.split(splitBy);
-                if (i>=1) {
+        //choose file
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open CSV file");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV files", "*.csv"));
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            // read data
+            String line = " ";
+            String splitBy = ",";
+            try {
+                // parsing a CSV file into BufferedReader class constructor
+                BufferedReader br = new BufferedReader(new FileReader(String.valueOf(App.class.getResource("data.csv").getPath())));
+                for(int i = 1; (line = br.readLine()) != null; i++) {
+                    String[] faecherCSV = line.split(splitBy);
                     // add read data as "Fach" to faecher list
                     faecher.add(new Fach(faecherCSV[0]));
                     ArrayList<Double> noten = new ArrayList<>(List.of(
@@ -344,114 +351,126 @@ public class Controller {
                     faecher.get(i-1).setMündlich(Double.parseDouble(faecherCSV[8]));
                     faecher.get(i-1).setErfahrungsnotePos1(Double.parseDouble(faecherCSV[9]));
                     faecher.get(i-1).setPrüfungsnotePos2(Double.parseDouble(faecherCSV[10]));
-
                 }
+
+                // set TextFields from faecher list
+                d1.setText(faecher.get(0).getZeugnisnotenBySemester(1)+"");
+                d2.setText(faecher.get(0).getZeugnisnotenBySemester(2)+"");
+                d3.setText(faecher.get(0).getZeugnisnotenBySemester(3)+"");
+                d4.setText(faecher.get(0).getZeugnisnotenBySemester(4)+"");
+                d5.setText(faecher.get(0).getZeugnisnotenBySemester(5)+"");
+                d6.setText(faecher.get(0).getZeugnisnotenBySemester(6)+"");
+                dM.setText(faecher.get(0).getMündlich()+"");
+                dS.setText(faecher.get(0).getSchriftlich()+"");
+                zD.setText(faecher.get(0).getErfahrungsnotePos1()+"");
+                pD.setText(faecher.get(0).getPrüfungsnotePos2()+"");
+                FnD.setText(faecher.get(0).getFachnote()+"");
+
+                f1.setText(faecher.get(1).getZeugnisnotenBySemester(1)+"");
+                f2.setText(faecher.get(1).getZeugnisnotenBySemester(2)+"");
+                f3.setText(faecher.get(1).getZeugnisnotenBySemester(3)+"");
+                f4.setText(faecher.get(1).getZeugnisnotenBySemester(4)+"");
+                fM.setText(faecher.get(1).getMündlich()+"");
+                fS.setText(faecher.get(1).getSchriftlich()+"");
+                zF.setText(faecher.get(1).getErfahrungsnotePos1()+"");
+                pF.setText(faecher.get(1).getPrüfungsnotePos2()+"");
+                FnF.setText(faecher.get(1).getFachnote()+"");
+
+                e1.setText(faecher.get(2).getZeugnisnotenBySemester(1)+"");
+                e2.setText(faecher.get(2).getZeugnisnotenBySemester(2)+"");
+                e3.setText(faecher.get(2).getZeugnisnotenBySemester(3)+"");
+                e4.setText(faecher.get(2).getZeugnisnotenBySemester(4)+"");
+                e5.setText(faecher.get(2).getZeugnisnotenBySemester(5)+"");
+                e6.setText(faecher.get(2).getZeugnisnotenBySemester(6)+"");
+                eS.setText(faecher.get(2).getSchriftlich()+"");
+                zE.setText(faecher.get(2).getErfahrungsnotePos1()+"");
+                pE.setText(faecher.get(2).getPrüfungsnotePos2()+"");
+                FnE.setText(faecher.get(2).getFachnote()+"");
+
+                m1.setText(faecher.get(3).getZeugnisnotenBySemester(1)+"");
+                m2.setText(faecher.get(3).getZeugnisnotenBySemester(2)+"");
+                m3.setText(faecher.get(3).getZeugnisnotenBySemester(3)+"");
+                m4.setText(faecher.get(3).getZeugnisnotenBySemester(4)+"");
+                mS.setText(faecher.get(3).getSchriftlich()+"");
+                zM.setText(faecher.get(3).getErfahrungsnotePos1()+"");
+                pM.setText(faecher.get(3).getPrüfungsnotePos2()+"");
+                FnM.setText(faecher.get(3).getFachnote()+"");
+
+                wr1.setText(faecher.get(4).getZeugnisnotenBySemester(1)+"");
+                wr2.setText(faecher.get(4).getZeugnisnotenBySemester(2)+"");
+                wr3.setText(faecher.get(4).getZeugnisnotenBySemester(3)+"");
+                wr4.setText(faecher.get(4).getZeugnisnotenBySemester(4)+"");
+                wr5.setText(faecher.get(4).getZeugnisnotenBySemester(5)+"");
+                wr6.setText(faecher.get(4).getZeugnisnotenBySemester(6)+"");
+                wrS.setText(faecher.get(4).getSchriftlich()+"");
+                zWR.setText(faecher.get(4).getErfahrungsnotePos1()+"");
+                pWR.setText(faecher.get(4).getPrüfungsnotePos2()+"");
+                FnWR.setText(faecher.get(4).getFachnote()+"");
+
+                rw1.setText(faecher.get(5).getZeugnisnotenBySemester(1)+"");
+                rw2.setText(faecher.get(5).getZeugnisnotenBySemester(2)+"");
+                rw3.setText(faecher.get(5).getZeugnisnotenBySemester(3)+"");
+                rw4.setText(faecher.get(5).getZeugnisnotenBySemester(4)+"");
+                rw5.setText(faecher.get(5).getZeugnisnotenBySemester(5)+"");
+                rw6.setText(faecher.get(5).getZeugnisnotenBySemester(6)+"");
+                rwS.setText(faecher.get(5).getSchriftlich()+"");
+                zRW.setText(faecher.get(5).getErfahrungsnotePos1()+"");
+                pRW.setText(faecher.get(5).getPrüfungsnotePos2()+"");
+                FnRW.setText(faecher.get(5).getFachnote()+"");
+
+                g1.setText(faecher.get(6).getZeugnisnotenBySemester(1)+"");
+                g2.setText(faecher.get(6).getZeugnisnotenBySemester(2)+"");
+                g3.setText(faecher.get(6).getZeugnisnotenBySemester(3)+"");
+                g4.setText(faecher.get(6).getZeugnisnotenBySemester(4)+"");
+                zG.setText(faecher.get(6).getErfahrungsnotePos1()+"");
+                FnG.setText(faecher.get(6).getFachnote()+"");
+
+                tu3.setText(faecher.get(7).getZeugnisnotenBySemester(1)+"");
+                tu4.setText(faecher.get(7).getZeugnisnotenBySemester(2)+"");
+                zTU.setText(faecher.get(7).getErfahrungsnotePos1()+"");
+                FnTU.setText(faecher.get(7).getFachnote()+"");
+
+                idpa6.setText(faecher.get(8).getZeugnisnotenBySemester(1)+"");
+                zIDPA.setText(faecher.get(8).getErfahrungsnotePos1()+"");
+                FnIDPA.setText(faecher.get(8).getFachnote()+"");
+
+                idaf3.setText(faecher.get(9).getZeugnisnotenBySemester(1)+"");
+                idaf4.setText(faecher.get(9).getZeugnisnotenBySemester(2)+"");
+                zIDAF.setText(faecher.get(9).getErfahrungsnotePos1()+"");
+                FnIDAF.setText(faecher.get(9).getFachnote()+"");
+                save();
             }
-            d1.setText(faecher.get(0).getZeugnisnotenBySemester(1)+"");
-            d2.setText(faecher.get(0).getZeugnisnotenBySemester(2)+"");
-            d3.setText(faecher.get(0).getZeugnisnotenBySemester(3)+"");
-            d4.setText(faecher.get(0).getZeugnisnotenBySemester(4)+"");
-            d5.setText(faecher.get(0).getZeugnisnotenBySemester(5)+"");
-            d6.setText(faecher.get(0).getZeugnisnotenBySemester(6)+"");
-            dM.setText(faecher.get(0).getMündlich()+"");
-            dS.setText(faecher.get(0).getSchriftlich()+"");
-            zD.setText(faecher.get(0).getErfahrungsnotePos1()+"");
-            pD.setText(faecher.get(0).getPrüfungsnotePos2()+"");
-            FnD.setText(faecher.get(0).getFachnote()+"");
+            catch (IOException e) {
+                e.printStackTrace();
+            }
 
-            f1.setText(faecher.get(1).getZeugnisnotenBySemester(1)+"");
-            f2.setText(faecher.get(1).getZeugnisnotenBySemester(2)+"");
-            f3.setText(faecher.get(1).getZeugnisnotenBySemester(3)+"");
-            f4.setText(faecher.get(1).getZeugnisnotenBySemester(4)+"");
-            fM.setText(faecher.get(1).getMündlich()+"");
-            fS.setText(faecher.get(1).getSchriftlich()+"");
-            zF.setText(faecher.get(1).getErfahrungsnotePos1()+"");
-            pF.setText(faecher.get(1).getPrüfungsnotePos2()+"");
-            FnF.setText(faecher.get(1).getFachnote()+"");
-
-            e1.setText(faecher.get(2).getZeugnisnotenBySemester(1)+"");
-            e2.setText(faecher.get(2).getZeugnisnotenBySemester(2)+"");
-            e3.setText(faecher.get(2).getZeugnisnotenBySemester(3)+"");
-            e4.setText(faecher.get(2).getZeugnisnotenBySemester(4)+"");
-            e5.setText(faecher.get(2).getZeugnisnotenBySemester(5)+"");
-            e6.setText(faecher.get(2).getZeugnisnotenBySemester(6)+"");
-            eS.setText(faecher.get(2).getSchriftlich()+"");
-            zE.setText(faecher.get(2).getErfahrungsnotePos1()+"");
-            pE.setText(faecher.get(2).getPrüfungsnotePos2()+"");
-            FnE.setText(faecher.get(2).getFachnote()+"");
-
-            m1.setText(faecher.get(3).getZeugnisnotenBySemester(1)+"");
-            m2.setText(faecher.get(3).getZeugnisnotenBySemester(2)+"");
-            m3.setText(faecher.get(3).getZeugnisnotenBySemester(3)+"");
-            m4.setText(faecher.get(3).getZeugnisnotenBySemester(4)+"");
-            mS.setText(faecher.get(3).getSchriftlich()+"");
-            zM.setText(faecher.get(3).getErfahrungsnotePos1()+"");
-            pM.setText(faecher.get(3).getPrüfungsnotePos2()+"");
-            FnM.setText(faecher.get(3).getFachnote()+"");
-
-            wr1.setText(faecher.get(4).getZeugnisnotenBySemester(1)+"");
-            wr2.setText(faecher.get(4).getZeugnisnotenBySemester(2)+"");
-            wr3.setText(faecher.get(4).getZeugnisnotenBySemester(3)+"");
-            wr4.setText(faecher.get(4).getZeugnisnotenBySemester(4)+"");
-            wr5.setText(faecher.get(4).getZeugnisnotenBySemester(5)+"");
-            wr6.setText(faecher.get(4).getZeugnisnotenBySemester(6)+"");
-            wrS.setText(faecher.get(4).getSchriftlich()+"");
-            zWR.setText(faecher.get(4).getErfahrungsnotePos1()+"");
-            pWR.setText(faecher.get(4).getPrüfungsnotePos2()+"");
-            FnWR.setText(faecher.get(4).getFachnote()+"");
-
-            rw1.setText(faecher.get(5).getZeugnisnotenBySemester(1)+"");
-            rw2.setText(faecher.get(5).getZeugnisnotenBySemester(2)+"");
-            rw3.setText(faecher.get(5).getZeugnisnotenBySemester(3)+"");
-            rw4.setText(faecher.get(5).getZeugnisnotenBySemester(4)+"");
-            rw5.setText(faecher.get(5).getZeugnisnotenBySemester(5)+"");
-            rw6.setText(faecher.get(5).getZeugnisnotenBySemester(6)+"");
-            rwS.setText(faecher.get(5).getSchriftlich()+"");
-            zRW.setText(faecher.get(5).getErfahrungsnotePos1()+"");
-            pRW.setText(faecher.get(5).getPrüfungsnotePos2()+"");
-            FnRW.setText(faecher.get(5).getFachnote()+"");
-
-            g1.setText(faecher.get(6).getZeugnisnotenBySemester(1)+"");
-            g2.setText(faecher.get(6).getZeugnisnotenBySemester(2)+"");
-            g3.setText(faecher.get(6).getZeugnisnotenBySemester(3)+"");
-            g4.setText(faecher.get(6).getZeugnisnotenBySemester(4)+"");
-            zG.setText(faecher.get(6).getErfahrungsnotePos1()+"");
-            FnG.setText(faecher.get(6).getFachnote()+"");
-
-            tu3.setText(faecher.get(7).getZeugnisnotenBySemester(1)+"");
-            tu4.setText(faecher.get(7).getZeugnisnotenBySemester(2)+"");
-            zTU.setText(faecher.get(7).getErfahrungsnotePos1()+"");
-            FnTU.setText(faecher.get(7).getFachnote()+"");
-
-            idpa6.setText(faecher.get(8).getZeugnisnotenBySemester(1)+"");
-            zIDPA.setText(faecher.get(8).getErfahrungsnotePos1()+"");
-            FnIDPA.setText(faecher.get(8).getFachnote()+"");
-
-            idaf3.setText(faecher.get(9).getZeugnisnotenBySemester(1)+"");
-            idaf4.setText(faecher.get(9).getZeugnisnotenBySemester(2)+"");
-            zIDAF.setText(faecher.get(9).getErfahrungsnotePos1()+"");
-            FnIDAF.setText(faecher.get(9).getFachnote()+"");
-            save();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
     public void export_csv() throws IOException {
         berechnen();
-        String csv = "Fach,1. Semester,2. Semester,3. Semester,4. Semester,5. Semester,6. Semester,schriftlich,mündlich,prüfungsnote,erfahrungsnote,fachnote\n";
+        // get data read for csv file
+        String csv = "Fach,1. Semester,2. Semester,3. Semester,4. Semester,5. Semester,6. Semester,schriftlich,muendlich,Pruefungsnote,Erfahrungsnote,Fachnote\n";
         for(Fach fach : faecher) {
             csv += fach.toCSV();
         }
-        try {
-            FileWriter file = new FileWriter(String.valueOf(App.class.getResource("data.csv").getPath()));
-            file.write(csv);
-            file.close();
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save CSV file");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV files", "*.csv"));
+        File selectedFile = fileChooser.showSaveDialog(null);
+        if (selectedFile != null) {
+            if (selectedFile != null) {
+                try (PrintWriter writer = new PrintWriter(selectedFile)) {
+                    // write file
+                    writer.write(csv);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+
+
     }
 
     public void delete() {
@@ -470,7 +489,6 @@ public class Controller {
                 TextField textField = (TextField) node;
                 if (textField.getText() != null && !textField.getText().isEmpty()) {
                     try {
-                        double v = Double.parseDouble(textField.getText());
                         if (!textField.getText().matches("^([1-5](\\.5)?)$|^([0-6])$|^([1-6](\\.0)?)$")) {
                             allFieldsFilled = false;
                             break;
@@ -508,12 +526,9 @@ public class Controller {
             for (Node node : grid1.getChildren()) {
                 if (node instanceof TextField) {
                     TextField textField = (TextField) node;
-                    if (textField.getText() != null && !textField.getText().isEmpty()) {
-
-                    } else {
-                        if (textField.getId().matches(".*\\d.*")) {
+                    if (textField.getId().matches(".*\\d.*")) {
+                            // set value 4
                             textField.setText("4");
-                        }
                     }
                 }
             }
@@ -567,7 +582,6 @@ public class Controller {
         }
     }
 
-    // ToDo: Error handling (zB null)
     public void berechnen() throws IOException {
         for (Node node : grid1.getChildren()) {
             if (node instanceof TextField) {
