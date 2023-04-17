@@ -464,6 +464,109 @@ public class Controller {
             }
     }
 
+    public void prognose() {
+        for (Node node : grid1.getChildren()) {
+            if (node instanceof TextField) {
+                TextField textField = (TextField) node;
+                if (textField.getText() != null && !textField.getText().isEmpty()) {
+                    try {
+                        double v = Double.parseDouble(textField.getText());
+                        if (!textField.getText().matches("^([1-5](\\.5)?)$|^([0-6])$|^([1-6](\\.0)?)$")) {
+                            allFieldsFilled = false;
+                            break;
+                        } else {
+                            allFieldsFilled = true;
+                        }
+                    } catch (NumberFormatException e) {
+                        allFieldsFilled = false;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (allFieldsFilled) {
+
+            TextField[][] ziele = {
+                    {dS, dM},
+                    {eS, eM},
+                    {mS},
+                    {fS, fM},
+                    {wrS},
+                    {rwS}
+            };
+
+            TextField[][] textFields = {
+                    {d1, d2, d3, d4, d5, d6},
+                    {e1, e2, e3, e4, e5, e6},
+                    {m1, m2, m3, m4},
+                    {f1, f2, f3, f4},
+                    {wr1, wr2, wr3, wr4, wr5, wr6},
+                    {rw1, rw2, rw3, rw4, rw5, rw6}
+            };
+
+            for (Node node : grid1.getChildren()) {
+                if (node instanceof TextField) {
+                    TextField textField = (TextField) node;
+                    if (textField.getText() != null && !textField.getText().isEmpty()) {
+
+                    } else {
+                        if (textField.getId().matches(".\\d.")) {
+                            textField.setText("4");
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < textFields.length; i++) {
+                double sum = 0;
+                int count = 0;
+                for (int j = 0; j < textFields[i].length; j++) {
+                    sum += Double.parseDouble(textFields[i][j].getText());
+                    count++;
+                }
+                double average = sum / count;
+                double rounded = Math.round(average * 2) / 2.0;
+                average = rounded;
+                double prognoseSchnitt = 7.5-average;
+                double prognoseEinzeln= prognoseSchnitt- 0.25;
+                double prognoseS= prognoseEinzeln+0.25;
+                double prognoseM=prognoseEinzeln-0.25;
+                for (int k=0; k<1; k++){
+                    switch (ziele[i].length){
+                        case 1:
+                            ziele[i][k].setText(Double.toString(prognoseS));
+                            break;
+                        case 2:
+                            ziele[i][k].setText(Double.toString(prognoseS));
+                            ziele[i][k+1].setText(Double.toString(prognoseM));
+                            break;
+                    }
+                }
+                System.out.println("Average of row " + (i + 1) + ": " + average);
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Ups...");
+            alert.setContentText("Bitte verwenden Sie Zahlen von 1-6 \nmit einem Abstand von 0.5");
+
+            //Set icon for error Message
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("prohibition.png"));
+
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.setStyle("-fx-background-color: #FFC0CB;");
+            dialogPane.getStyleClass().add("alert");
+            Node header = dialogPane.lookup(".dialog-pane .header-panel");
+            header.setStyle("-fx-background-color: #FFC0CB;");
+
+            // Show the alert dialog
+            alert.showAndWait();
+        }
+    }
+
     // ToDo: Error handling (zB null)
     public void berechnen() throws IOException {
         for (Node node : grid1.getChildren()) {
