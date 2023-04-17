@@ -575,7 +575,7 @@ public class Controller {
                 if (textField.getText() != null && !textField.getText().isEmpty()) {
                     try {
                         double v = Double.parseDouble(textField.getText());
-                        if (!textField.getText().matches("^([1-5](\\.5)?)$|^([0-6])$")) {
+                        if (!textField.getText().matches("^([1-5](\\.5)?)$|^([0-6])$|^([1-6](\\.0)?)$")) {
                             allFieldsFilled = false;
                             break;
                         } else {

@@ -242,7 +242,7 @@
                                  <DropShadow />
                               </effect>
                            </Button>
-                           <Button id="b4" layoutX="697.0" layoutY="715.0" mnemonicParsing="false" onAction="#save" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Prognose">
+                           <Button id="b4" layoutX="697.0" layoutY="715.0" mnemonicParsing="false" onAction="#prognose" prefHeight="55.0" prefWidth="111.0" style="-fx-background-color: #ADD8E6;" text="Prognose">
                               <effect>
                                  <DropShadow />
                               </effect>
