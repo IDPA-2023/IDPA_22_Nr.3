@@ -324,7 +324,7 @@ public class Controller {
     }
 
     public void import_csv() {
-        //choose file
+        // choose file
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open CSV file");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV files", "*.csv"));
@@ -335,7 +335,7 @@ public class Controller {
             String splitBy = ",";
             try {
                 // parsing a CSV file into BufferedReader class constructor
-                BufferedReader br = new BufferedReader(new FileReader(String.valueOf(App.class.getResource("data.csv").getPath())));
+                BufferedReader br = new BufferedReader(new FileReader(selectedFile));
                 for(int i = 1; (line = br.readLine()) != null; i++) {
                     String[] faecherCSV = line.split(splitBy);
                     // add read data as "Fach" to faecher list
@@ -444,7 +444,6 @@ public class Controller {
             catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
