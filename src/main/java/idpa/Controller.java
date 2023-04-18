@@ -22,6 +22,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Controller {
     @FXML
@@ -776,7 +777,7 @@ public class Controller {
                     }
                 }
                 for (int j = 0; j < actuelList.length; j++) {
-                    if (actuelList[j] != null && !actuelList[j].getText().isEmpty()) {
+                    if (actuelList[j] != null && !actuelList[j].getText().isEmpty()&& !Objects.equals(actuelList[j].getText(), "0")) {
                         series.getData().add(new XYChart.Data<>(j + 1, Double.parseDouble(actuelList[j].getText())));
                     }
                 }
