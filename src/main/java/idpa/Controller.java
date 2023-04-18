@@ -337,21 +337,21 @@ public class Controller {
                 // parsing a CSV file into BufferedReader class constructor
                 BufferedReader br = new BufferedReader(new FileReader(selectedFile));
                 for(int i = 1; (line = br.readLine()) != null; i++) {
-                    String[] faecherCSV = line.split(splitBy);
+                    String[] fach = line.split(splitBy);
                     // add read data as "Fach" to faecher list
-                    faecher.add(new Fach(faecherCSV[0]));
+                    faecher.add(new Fach(fach[0]));
                     ArrayList<Double> noten = new ArrayList<>(List.of(
-                            Double.parseDouble(faecherCSV[1]),
-                            Double.parseDouble(faecherCSV[2]),
-                            Double.parseDouble(faecherCSV[3]),
-                            Double.parseDouble(faecherCSV[4]),
-                            Double.parseDouble(faecherCSV[5]),
-                            Double.parseDouble(faecherCSV[6])));
+                            Double.parseDouble(fach[1]),
+                            Double.parseDouble(fach[2]),
+                            Double.parseDouble(fach[3]),
+                            Double.parseDouble(fach[4]),
+                            Double.parseDouble(fach[5]),
+                            Double.parseDouble(fach[6])));
                     faecher.get(i-1).setZeugnisnoten(noten);
-                    faecher.get(i-1).setSchriftlich(Double.parseDouble(faecherCSV[7]));
-                    faecher.get(i-1).setMündlich(Double.parseDouble(faecherCSV[8]));
-                    faecher.get(i-1).setErfahrungsnotePos1(Double.parseDouble(faecherCSV[9]));
-                    faecher.get(i-1).setPrüfungsnotePos2(Double.parseDouble(faecherCSV[10]));
+                    faecher.get(i-1).setSchriftlich(Double.parseDouble(fach[7]));
+                    faecher.get(i-1).setMündlich(Double.parseDouble(fach[8]));
+                    faecher.get(i-1).setErfahrungsnotePos1(Double.parseDouble(fach[9]));
+                    faecher.get(i-1).setPrüfungsnotePos2(Double.parseDouble(fach[10]));
                 }
 
                 // set TextFields from faecher list
@@ -447,6 +447,7 @@ public class Controller {
         }
     }
 
+    // ToDo: import csv file
     public void export_csv() throws IOException {
         berechnen();
         // get data read for csv file
@@ -469,8 +470,6 @@ public class Controller {
                 }
             }
         }
-
-
     }
 
     public void delete() {
@@ -504,7 +503,6 @@ public class Controller {
         }
 
         if (allFieldsFilled) {
-
             TextField[][] ziele = {
                     {dS, dM},
                     {eS, eM},
@@ -744,8 +742,8 @@ public class Controller {
             FnIDAF.setText(idaf.getFachnote()+"");
             faecher.add(idaf);
 
-            // gesamtnote, anzahl tiefnoten und tiefpunkte berechnen
-            gesamtnote.setText(((double) Math.round(getGesamtnote()*10)/10)+"");
+            // calculate gesamtnote, anzahl tiefnoten and tiefpunkte
+            gesamtnote.setText((getGesamtnote()+""));
             anzahl_tiefnoten.setText(getAnzahlTiefnoten()+"");
             tiefpunkte.setText(getTiefpunkte()+"");
 
@@ -826,7 +824,7 @@ public class Controller {
                 validNoten++;
             }
         }
-        return total/validNoten;
+        return (double) Math.round((total/validNoten)*10)/10;
     }
 
     public Integer getAnzahlTiefnoten() {
