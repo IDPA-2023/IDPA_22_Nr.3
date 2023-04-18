@@ -748,7 +748,7 @@ public class Controller {
 
             // gesamtnote, anzahl tiefnoten und tiefpunkte berechnen
             ChangeListener<String> gesamtnoteListener = (observable, oldValue, newValue) -> {
-                if (!(Math.round(getGesamtnote() * 10 / 10) >= 4)) {
+                if (!(((double) Math.round(getGesamtnote()*10)/10) >= 4)) {
                     gesamtnote.setStyle("-fx-background-color: #FFA07A !important;");
                 } else {
                     gesamtnote.setStyle("-fx-background-color: #90EE90 !important;");
