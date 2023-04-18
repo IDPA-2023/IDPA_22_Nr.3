@@ -203,7 +203,7 @@ public class Controller {
     String filePath = "data.json";
     ArrayList<Fach> faecher = new ArrayList<>();
 
-    public void initial() {
+    public void import_json() {
         try (FileReader fileReader = new FileReader(filePath)) {
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject) jsonParser.parse(fileReader);
@@ -319,7 +319,7 @@ public class Controller {
     }
 
     public void initialize() {
-        initial();
+        import_json();
     }
 
     public void import_csv() {
