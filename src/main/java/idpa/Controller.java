@@ -1,5 +1,6 @@
 package idpa;
 
+import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.chart.LineChart;
@@ -746,6 +747,33 @@ public class Controller {
             faecher.add(idaf);
 
             // gesamtnote, anzahl tiefnoten und tiefpunkte berechnen
+            ChangeListener<String> gesamtnoteListener = (observable, oldValue, newValue) -> {
+                if (!(Math.round(getGesamtnote() * 10 / 10) >= 4)) {
+                    gesamtnote.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    gesamtnote.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            gesamtnote.textProperty().addListener(gesamtnoteListener);
+
+            ChangeListener<String> anzahlTiefnotenListener = (observable, oldValue, newValue) -> {
+                if (getAnzahlTiefnoten() > 2) {
+                    anzahl_tiefnoten.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    anzahl_tiefnoten.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            anzahl_tiefnoten.textProperty().addListener(anzahlTiefnotenListener);
+
+            ChangeListener<String> tiefpunkteListener = (observable, oldValue, newValue) -> {
+                if (getTiefpunkte() > 2) {
+                    tiefpunkte.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    tiefpunkte.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            tiefpunkte.textProperty().addListener(tiefpunkteListener);
+
             gesamtnote.setText(((double) Math.round(getGesamtnote()*10)/10)+"");
             anzahl_tiefnoten.setText(getAnzahlTiefnoten()+"");
             tiefpunkte.setText(getTiefpunkte()+"");
