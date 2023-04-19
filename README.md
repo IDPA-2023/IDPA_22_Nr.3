@@ -7,4 +7,5 @@
 * FXML
 
 Gehe zu [Spezifikation](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/spezifikation.md).  
-Gehe zu [Use Case Diagramm](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/usecase_notenrechner.png).
+Gehe zu [Use Case Diagramm](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/usecase_notenrechner.png).  
+Gehe zu den [Arbeitsjournalen](https://github.com/IDPA-2023/IDPA_22_Nr.3/tree/main/arbeitsjournale).
