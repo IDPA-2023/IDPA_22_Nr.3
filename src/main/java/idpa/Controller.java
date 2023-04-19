@@ -491,21 +491,13 @@ public class Controller {
     }
 
     public void prognose() {
-        for (Node node : grid1.getChildren()) {
-            if (node instanceof TextField) {
-                TextField textField = (TextField) node;
-                if (textField.getId().matches(".*\\d.*")) {
-                    // set value 4
-                    textField.setText("4");
-                }
-            }
-        }
+
         for (Node node : grid1.getChildren()) {
             if (node instanceof TextField) {
                 TextField textField = (TextField) node;
                 if (textField.getText() != null && !textField.getText().isEmpty()) {
                     try {
-                        if (!textField.getText().matches("^([1-5](\\.5)?)$|^([0-6])$|^([1-6](\\.0)?)$")) {
+                        if (!textField.getText().matches("^([1-5](\\.5)?)$|^([0-6])$|^([0-6](\\.0)?)$")) {
                             allFieldsFilled = false;
                             break;
                         } else {
@@ -518,7 +510,18 @@ public class Controller {
                 }
             }
         }
+        for (Node node : grid1.getChildren()) {
+            if (node instanceof TextField) {
+                TextField textField = (TextField) node;
+                if (textField.getText() != null && !textField.getText().isEmpty()) {
 
+                } else {
+                    if (textField.getId().matches(".*\\d.*")) {
+                        textField.setText("4");
+                    }
+                }
+            }
+        }
         if (allFieldsFilled) {
 
             TextField[][] ziele = {
