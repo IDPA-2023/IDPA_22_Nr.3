@@ -7,7 +7,7 @@ Basierend auf dem KBW Notenrechner.
 
 Der Schüler kann seine **Noten eingeben**, seinen **Notenschnitt berechnen** und somit eine **Prognose erstellen** lassen. Weiter gibt es Features wie **Fächer hinzufügen** oder ein **Diagram**, welches die **Entwicklung des Schnitts über die Zeit anzeigt**. Wenn es sich um eine Web Applikation handelt wird ebenfalls eine **Authentifizierung** sichergestellt.
 
-## Test
+## Testfälle
 Nr | Input | Output | erfüllt
 ---| ---| ---| ---
 1 | Es werden mehr als 2 neg. Noten eingetragen, weniger als einen 4er Schnitt und mehr als zwei Tiefpunkte erreicht. | Promotionsstand negativ (sonst positiv) | ✔️
