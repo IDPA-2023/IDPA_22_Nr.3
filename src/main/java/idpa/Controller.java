@@ -442,6 +442,9 @@ public class Controller {
                 idaf4.setText(faecher.get(9).getZeugnisnotenBySemester(2)+"");
                 zIDAF.setText(faecher.get(9).getErfahrungsnotePos1()+"");
                 FnIDAF.setText(faecher.get(9).getFachnote()+"");
+
+                faecher.clear();
+                berechnen();
                 save();
             }
             catch (IOException e) {
