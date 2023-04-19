@@ -626,6 +626,16 @@ public class Controller {
             d.setMündlich(Double.parseDouble(dM.getText()));
             d.setErfahrungsnotePos1(d.getPos1());
             d.setPrüfungsnotePos2(d.getPos2());
+
+            ChangeListener<String> fnDListener = (observable, oldValue, newValue) -> {
+                if (d.getFachnote() < 4) {
+                    FnD.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    FnD.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            FnD.textProperty().addListener(fnDListener);
+
             zD.setText(d.getErfahrungsnotePos1()+"");
             pD.setText(d.getPrüfungsnotePos2()+"");
             FnD.setText(d.getFachnote()+"");
@@ -641,6 +651,16 @@ public class Controller {
             f.setMündlich(Double.parseDouble(fM.getText()));
             f.setErfahrungsnotePos1(f.getPos1());
             f.setPrüfungsnotePos2(f.getPos2());
+
+            ChangeListener<String> fnFListener = (observable, oldValue, newValue) -> {
+                if (f.getFachnote() < 4) {
+                    FnF.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    FnF.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            FnF.textProperty().addListener(fnFListener);
+
             zF.setText(f.getErfahrungsnotePos1()+"");
             pF.setText(f.getPrüfungsnotePos2()+"");
             FnF.setText(f.getFachnote()+"");
@@ -658,6 +678,17 @@ public class Controller {
             e.setMündlich(Double.parseDouble(eM.getText()));
             e.setErfahrungsnotePos1(e.getPos1());
             e.setPrüfungsnotePos2(e.getPos2());
+
+            ChangeListener<String> fnEListener = (observable, oldValue, newValue) -> {
+                if (e.getFachnote() < 4) {
+                    FnE.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    FnE.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            FnE.textProperty().addListener(fnEListener);
+
+
             zE.setText(e.getErfahrungsnotePos1()+"");
             pE.setText(e.getPrüfungsnotePos2()+"");
             FnE.setText(e.getFachnote()+"");
@@ -672,6 +703,17 @@ public class Controller {
             m.setSchriftlich(Double.parseDouble(mS.getText()));
             m.setErfahrungsnotePos1(m.getPos1());
             m.setPrüfungsnotePos2(m.getPos2());
+
+            ChangeListener<String> fnMListener = (observable, oldValue, newValue) -> {
+                if (m.getFachnote() < 4) {
+                    FnM.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    FnM.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            FnM.textProperty().addListener(fnMListener);
+
+
             zM.setText(m.getErfahrungsnotePos1()+"");
             pM.setText(m.getPrüfungsnotePos2()+"");
             FnM.setText(m.getFachnote()+"");
@@ -688,6 +730,17 @@ public class Controller {
             wr.setSchriftlich(Double.parseDouble(wrS.getText()));
             wr.setErfahrungsnotePos1(wr.getPos1());
             wr.setPrüfungsnotePos2(wr.getPos2());
+
+            ChangeListener<String> fnWRListener = (observable, oldValue, newValue) -> {
+                if (wr.getFachnote() < 4) {
+                    FnWR.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    FnWR.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            FnWR.textProperty().addListener(fnWRListener);
+
+
             zWR.setText(wr.getErfahrungsnotePos1()+"");
             pWR.setText(wr.getPrüfungsnotePos2()+"");
             FnWR.setText(wr.getFachnote()+"");
@@ -704,6 +757,17 @@ public class Controller {
             rw.setSchriftlich(Double.parseDouble(rwS.getText()));
             rw.setErfahrungsnotePos1(rw.getPos1());
             rw.setPrüfungsnotePos2(rw.getPos2());
+
+            ChangeListener<String> fnRWListener = (observable, oldValue, newValue) -> {
+                if (rw.getFachnote() < 4) {
+                    FnRW.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    FnRW.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            FnRW.textProperty().addListener(fnRWListener);
+
+
             zRW.setText(rw.getErfahrungsnotePos1()+"");
             pRW.setText(rw.getPrüfungsnotePos2()+"");
             FnRW.setText(rw.getFachnote()+"");
@@ -711,11 +775,22 @@ public class Controller {
 
             Fach g = new Fach("Geschichte und Politik");
             g.setZeugnisnoten(new ArrayList<>(Arrays.asList(
-                    Double.parseDouble(f1.getText()),
-                    Double.parseDouble(f2.getText()),
-                    Double.parseDouble(f3.getText()),
-                    Double.parseDouble(f4.getText()))));
+                    Double.parseDouble(g1.getText()),
+                    Double.parseDouble(g2.getText()),
+                    Double.parseDouble(g3.getText()),
+                    Double.parseDouble(g4.getText()))));
             g.setErfahrungsnotePos1(g.getPos1());
+
+            ChangeListener<String> fnGListener = (observable, oldValue, newValue) -> {
+                if (g.getFachnote() < 4) {
+                    FnG.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    FnG.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            FnG.textProperty().addListener(fnGListener);
+
+
             zG.setText(g.getErfahrungsnotePos1()+"");
             FnG.setText(g.getFachnote()+"");
             faecher.add(g);
@@ -725,6 +800,17 @@ public class Controller {
                     Double.parseDouble(tu3.getText()),
                     Double.parseDouble(tu4.getText()))));
             tu.setErfahrungsnotePos1(Double.parseDouble(tu4.getText()));
+
+            ChangeListener<String> fnTuListener = (observable, oldValue, newValue) -> {
+                if (tu.getFachnote() < 4) {
+                    FnTU.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    FnTU.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            FnTU.textProperty().addListener(fnTuListener);
+
+
             zTU.setText(tu.getErfahrungsnotePos1()+"");
             FnTU.setText(tu.getFachnote()+"");
             faecher.add(tu);
@@ -733,6 +819,17 @@ public class Controller {
             idpa.setZeugnisnoten(new ArrayList<>(Arrays.asList(
                     Double.parseDouble(idpa6.getText()))));
             idpa.setErfahrungsnotePos1(idpa.getPos1());
+
+            ChangeListener<String> fnIDPAListener = (observable, oldValue, newValue) -> {
+                if (idpa.getFachnote() < 4) {
+                    FnIDPA.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    FnIDPA.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            FnIDPA.textProperty().addListener(fnIDPAListener);
+
+
             zIDPA.setText(idpa.getErfahrungsnotePos1()+"");
             FnIDPA.setText(idpa.getFachnote()+"");
             faecher.add(idpa);
@@ -742,6 +839,17 @@ public class Controller {
                     Double.parseDouble(idaf3.getText()),
                     Double.parseDouble(idaf4.getText()))));
             idaf.setErfahrungsnotePos1(idaf.getPos1());
+
+            ChangeListener<String> fnIDAFListener = (observable, oldValue, newValue) -> {
+                if (idaf.getFachnote() < 4) {
+                    FnIDAF.setStyle("-fx-background-color: #FFA07A !important;");
+                } else {
+                    FnIDAF.setStyle("-fx-background-color: #90EE90 !important;");
+                }
+            };
+            FnIDAF.textProperty().addListener(fnIDAFListener);
+
+
             zIDAF.setText(idaf.getErfahrungsnotePos1()+"");
             FnIDAF.setText(idaf.getFachnote()+"");
             faecher.add(idaf);
