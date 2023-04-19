@@ -429,17 +429,17 @@ public class Controller {
                 zG.setText(faecher.get(6).getErfahrungsnotePos1()+"");
                 FnG.setText(faecher.get(6).getFachnote()+"");
 
-                tu3.setText(faecher.get(7).getZeugnisnotenBySemester(1)+"");
-                tu4.setText(faecher.get(7).getZeugnisnotenBySemester(2)+"");
+                tu3.setText(faecher.get(7).getZeugnisnotenBySemester(3)+"");
+                tu4.setText(faecher.get(7).getZeugnisnotenBySemester(4)+"");
                 zTU.setText(faecher.get(7).getErfahrungsnotePos1()+"");
                 FnTU.setText(faecher.get(7).getFachnote()+"");
 
-                idpa6.setText(faecher.get(8).getZeugnisnotenBySemester(1)+"");
+                idpa6.setText(faecher.get(8).getZeugnisnotenBySemester(6)+"");
                 zIDPA.setText(faecher.get(8).getErfahrungsnotePos1()+"");
                 FnIDPA.setText(faecher.get(8).getFachnote()+"");
 
-                idaf3.setText(faecher.get(9).getZeugnisnotenBySemester(1)+"");
-                idaf4.setText(faecher.get(9).getZeugnisnotenBySemester(2)+"");
+                idaf3.setText(faecher.get(9).getZeugnisnotenBySemester(3)+"");
+                idaf4.setText(faecher.get(9).getZeugnisnotenBySemester(4)+"");
                 zIDAF.setText(faecher.get(9).getErfahrungsnotePos1()+"");
                 FnIDAF.setText(faecher.get(9).getFachnote()+"");
 
