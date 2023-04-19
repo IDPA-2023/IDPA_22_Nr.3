@@ -17,5 +17,6 @@ Nr | Input | Output | erfüllt
 5 | Fach wird hinzugefügt | Es können Noten für das neu hinzugefügte Fach eingetragen werden und sie werden im Promotionsstand berücksichtigt. | ❌
 6 | Entwicklung (Notenschnitt/Zeit) anzeigen | Ein Diagram wird gezeigt, das die Entwicklung des Schnitts über die Zeit anzeigt. | ✔️
 7 | Bei Aufrufen des Programs wird eine Authentifizierung verlangt | Man kann sich nur mit gültigen Anmeldedaten authentifizieren oder evtl. neu registrieren. | ❌
+8 | Programm kann durch eine ausführbare Datei gestartet werden. | Programm wird geöffnet und kann ganz normal bedient werden. | ✔️
 
 Vermerkung zu Nummer 5 und 7: Aufgrund von Zeitdruck haben wir unsere Prioritäten auf die anderen (Haupt-)Funktionen gelegt.
