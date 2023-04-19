@@ -336,23 +336,25 @@ public class Controller {
             String splitBy = ",";
             try {
                 // parsing a CSV file into BufferedReader class constructor
-                BufferedReader br = new BufferedReader(new FileReader(String.valueOf(App.class.getResource("data.csv").getPath())));
-                for(int i = 1; (line = br.readLine()) != null; i++) {
+                BufferedReader br = new BufferedReader(new FileReader(selectedFile.getPath()));
+                for(int i = 0; (line = br.readLine()) != null; i++) {
                     String[] faecherCSV = line.split(splitBy);
                     // add read data as "Fach" to faecher list
-                    faecher.add(new Fach(faecherCSV[0]));
-                    ArrayList<Double> noten = new ArrayList<>(List.of(
-                            Double.parseDouble(faecherCSV[1]),
-                            Double.parseDouble(faecherCSV[2]),
-                            Double.parseDouble(faecherCSV[3]),
-                            Double.parseDouble(faecherCSV[4]),
-                            Double.parseDouble(faecherCSV[5]),
-                            Double.parseDouble(faecherCSV[6])));
-                    faecher.get(i-1).setZeugnisnoten(noten);
-                    faecher.get(i-1).setSchriftlich(Double.parseDouble(faecherCSV[7]));
-                    faecher.get(i-1).setMündlich(Double.parseDouble(faecherCSV[8]));
-                    faecher.get(i-1).setErfahrungsnotePos1(Double.parseDouble(faecherCSV[9]));
-                    faecher.get(i-1).setPrüfungsnotePos2(Double.parseDouble(faecherCSV[10]));
+                    if(i >= 1) {
+                        faecher.add(new Fach(faecherCSV[0]));
+                        ArrayList<Double> noten = new ArrayList<>(List.of(
+                                Double.parseDouble(faecherCSV[1]),
+                                Double.parseDouble(faecherCSV[2]),
+                                Double.parseDouble(faecherCSV[3]),
+                                Double.parseDouble(faecherCSV[4]),
+                                Double.parseDouble(faecherCSV[5]),
+                                Double.parseDouble(faecherCSV[6])));
+                        faecher.get(i-1).setZeugnisnoten(noten);
+                        faecher.get(i-1).setSchriftlich(Double.parseDouble(faecherCSV[7]));
+                        faecher.get(i-1).setMündlich(Double.parseDouble(faecherCSV[8]));
+                        faecher.get(i-1).setErfahrungsnotePos1(Double.parseDouble(faecherCSV[9]));
+                        faecher.get(i-1).setPrüfungsnotePos2(Double.parseDouble(faecherCSV[10]));
+                    }
                 }
 
                 // set TextFields from faecher list
@@ -602,7 +604,7 @@ public class Controller {
                         break;
                     }
                 }
-                // check if TextField is not set and set it to 0.0
+                // check if TextField is not set and set it to 0
                 else {
                     if (textField.getText().isEmpty()) {
                         textField.setText("0");
