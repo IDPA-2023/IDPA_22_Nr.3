@@ -919,7 +919,9 @@ public class Controller {
                 }
                 for (int j = 0; j < actuelList.length; j++) {
                     if (actuelList[j] != null && !actuelList[j].getText().isEmpty()&& !Objects.equals(actuelList[j].getText(), "0")) {
-                        series.getData().add(new XYChart.Data<>(j + 1, Double.parseDouble(actuelList[j].getText())));
+                        if (actuelList[j] != null && !actuelList[j].getText().isEmpty()&& !Objects.equals(actuelList[j].getText(), "0.0")) {
+                            series.getData().add(new XYChart.Data<>(j + 1, Double.parseDouble(actuelList[j].getText())));
+                        }
                     }
                 }
 
