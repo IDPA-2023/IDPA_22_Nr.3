@@ -8,6 +8,7 @@
 
 [Download here](https://github.com/IDPA-2023/IDPA_22_Nr.3/raw/main/notenrechner_IMS.zip)!
 
-Gehe zu [Spezifikation](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/spezifikation.md).  
-Gehe zu [Use Case Diagramm](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/usecase_notenrechner.png).  
-Gehe zu den [Arbeitsjournalen](https://github.com/IDPA-2023/IDPA_22_Nr.3/tree/main/arbeitsjournale).
+Gehe zur [Spezifikation](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/spezifikation.md).  
+Gehe zu den [Use Case Diagramm](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/usecase_notenrechner.png).  
+Gehe zu den [Arbeitsjournalen](https://github.com/IDPA-2023/IDPA_22_Nr.3/tree/main/arbeitsjournale).  
+Gehe zur [technischen Dokumentation](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/technische_dokumentation.pdf).
