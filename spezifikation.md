@@ -10,11 +10,12 @@ Der Schüler kann seine **Noten eingeben**, seinen **Notenschnitt berechnen** un
 ## Test
 Nr | Input | Output | erfüllt
 ---| ---| ---| ---
-1 | Es werden mehr als 2 neg. Noten eingetragen, weniger als einen 4er Schnitt und mehr als zwei Tiefpunkte erreicht. | Promotionsstand negativ (sonst positiv) | tbc
-2 | Noten werden eingetragen | Notenschnitt sowie Promotionsstand wird angegeben. | tbc
-3 | Noten werden mittels .csv Datei importiert | Noten werden automatisch eingetragen. (vgl. Test Nr 1) | tbc
-4 | Noten werden exportiert | Der Anwender erhält ein PDF/PNG mit den Noten, -schnitte und Promotionsentscheide. | tbc
-5 | Fach wird hinzugefügt | Es können Noten für das neu hinzugefügte Fach eingetragen werden und sie werden im Promotionsstand berücksichtigt. | tbc
-6 | Entwicklung (Notenschnitt/Zeit) anzeigen | Ein Diagram wird gezeigt, das die Entwicklung des Schnitts über die Zeit anzeigt. | tbc
-7 | Bei Aufrufen des Programs wird eine Authentifizierung verlangt | Man kann sich nur mit gültigen Anmeldedaten authentifizieren oder evtl. neu registrieren. | tbc
+1 | Es werden mehr als 2 neg. Noten eingetragen, weniger als einen 4er Schnitt und mehr als zwei Tiefpunkte erreicht. | Promotionsstand negativ (sonst positiv) | ✔️
+2 | Noten werden eingetragen | Notenschnitt sowie Promotionsstand wird angegeben. | ✔️
+3 | Noten werden mittels .csv Datei importiert | Noten werden automatisch eingetragen. (vgl. Test Nr 1) | ✔️
+4 | Noten werden exportiert | Der Anwender erhält ein PDF/PNG mit den Noten, -schnitte und Promotionsentscheide. | ✔️
+5 | Fach wird hinzugefügt | Es können Noten für das neu hinzugefügte Fach eingetragen werden und sie werden im Promotionsstand berücksichtigt. | ❌
+6 | Entwicklung (Notenschnitt/Zeit) anzeigen | Ein Diagram wird gezeigt, das die Entwicklung des Schnitts über die Zeit anzeigt. | ✔️
+7 | Bei Aufrufen des Programs wird eine Authentifizierung verlangt | Man kann sich nur mit gültigen Anmeldedaten authentifizieren oder evtl. neu registrieren. | ❌
 
+Vermerkung zu Nummer 5 und 7: Aufgrund von Zeitdruck haben wir unsere Prioritäten auf die anderen (Haupt-)Funktionen gelegt.
