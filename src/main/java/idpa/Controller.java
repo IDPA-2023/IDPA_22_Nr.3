@@ -494,6 +494,15 @@ public class Controller {
         for (Node node : grid1.getChildren()) {
             if (node instanceof TextField) {
                 TextField textField = (TextField) node;
+                if (textField.getId().matches(".*\\d.*")) {
+                    // set value 4
+                    textField.setText("4");
+                }
+            }
+        }
+        for (Node node : grid1.getChildren()) {
+            if (node instanceof TextField) {
+                TextField textField = (TextField) node;
                 if (textField.getText() != null && !textField.getText().isEmpty()) {
                     try {
                         if (!textField.getText().matches("^([1-5](\\.5)?)$|^([0-6])$|^([1-6](\\.0)?)$")) {
@@ -530,15 +539,6 @@ public class Controller {
                     {rw1, rw2, rw3, rw4, rw5, rw6}
             };
 
-            for (Node node : grid1.getChildren()) {
-                if (node instanceof TextField) {
-                    TextField textField = (TextField) node;
-                    if (textField.getId().matches(".*\\d.*")) {
-                            // set value 4
-                            textField.setText("4");
-                    }
-                }
-            }
 
             for (int i = 0; i < textFields.length; i++) {
                 double sum = 0;
@@ -941,6 +941,16 @@ public class Controller {
             xAxis.setTickUnit(1);
 
         } else {
+
+            for (Node node : grid1.getChildren()) {
+                if (node instanceof TextField) {
+                    TextField textField = (TextField) node;
+                    if (Objects.equals(textField.getText(), "0")){
+                        textField.clear();
+                    }
+                }
+            }
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Ups...");
