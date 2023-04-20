@@ -11,4 +11,5 @@
 Gehe zur [Spezifikation](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/spezifikation.md).  
 Gehe zu den [Use Case Diagramm](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/usecase_notenrechner.png).  
 Gehe zu den [Arbeitsjournalen](https://github.com/IDPA-2023/IDPA_22_Nr.3/tree/main/arbeitsjournale).  
+Gehe zu den [Prototypen](https://github.com/IDPA-2023/IDPA_22_Nr.3/tree/main/prototypen).   
 Gehe zur [technischen Dokumentation](https://github.com/IDPA-2023/IDPA_22_Nr.3/blob/main/technische_dokumentation.pdf).
